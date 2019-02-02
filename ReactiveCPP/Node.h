@@ -39,17 +39,20 @@ protected:
     S _value;
     std::vector<Node*> _successors;
 
-    virtual auto has_changed(Node& who) -> void {
+    virtual auto has_changed() -> void {
         return;
     };
 
     auto notify_change() -> void {
-        for(Node successor : _successors)
-            successor.has_changed(*this);
+        for(Node* successor : _successors)
+            successor->has_changed();
     }
 
     auto set_value(S value) -> void {
-        this->_value = value;
+        if(value != this->_value) {
+            this->_value = value;
+            this->notify_change();
+        }
     };
 };
 

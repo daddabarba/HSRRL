@@ -67,12 +67,9 @@ protected:
     //std::map<Node, bool> changes;
     //int num_predecessors, num_changes;
 
-    template<typename T>
-    auto has_changed(Node<T>& who) -> void {
-
+    auto has_changed() -> void override {
         if( (this->dependency) == ANY )
             this->evaluate();
-
     }
 
     auto evaluate() -> void {
