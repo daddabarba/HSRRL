@@ -43,20 +43,20 @@ public:
     {
         //static_assert(sizeof...(TIn) == N, "Number of arguments not matching");
 
-        //link_predecessors(std::forward<TIn>(args)...);
+        link_predecessors(std::forward<Node<TIn>>(args)...);
         std::cout << this->expression();
     };
 
-    /*template<typename T>
-    auto link_predecessor(Node<T>&& pred) -> void{
+    template<typename T>
+    auto link_predecessors(Node<T>&& pred) -> void{
         pred.link_successor(this);
     }
 
     template<typename T, typename ...Ts>
     auto link_predecessors(Node<T>&& pred, Node<Ts>&& ...others ) -> void {
-        link_predecessor(pred);
-        link_predecessors(others...);
-    };*/
+        link_predecessors(std::forward<Node<T>>(pred));
+        link_predecessors(std::forward<Node<Ts>>(others)...);
+    };
 
 protected:
 

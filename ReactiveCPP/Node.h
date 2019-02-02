@@ -30,6 +30,10 @@ public:
         return this->_value;
     }
 
+    auto link_successor(Node* successor) -> void{
+        _successors.push_back(successor);
+    }
+
 protected:
 
     S _value;
@@ -38,10 +42,6 @@ protected:
     virtual auto has_changed(Node& who) -> void {
         return;
     };
-
-    auto link_successor(Node* successor) -> void{
-        _successors.push_back(successor);
-    }
 
     auto notify_change() -> void {
         for(Node successor : _successors)
