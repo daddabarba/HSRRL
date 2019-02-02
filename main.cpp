@@ -5,6 +5,10 @@
 #include "ReactiveCPP/InputNode.h"
 #include "ReactiveCPP/VarNode.h"
 
+int f(int n){
+    return 2*(n);
+}
+
 int main() {
 
     REACT_CONC::InputNode<int> A(2);
@@ -15,9 +19,11 @@ int main() {
         return a+b;
     }, REACT_CONC::ANY, std::move(A), std::move(B));
 
+
     std::cout<<"a: " << A.get_value()<<" + b: " <<B.get_value() << " = x: " << X.get_value()<<std::endl;
     A.set(4);
     std::cout<<"a: " << A.get_value()<<" + b: " <<B.get_value() << " = x: " << X.get_value()<<std::endl;
+
 
     return 0;
 }

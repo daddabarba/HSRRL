@@ -33,13 +33,14 @@ public:
 
     VarNode(TFun&& fun, Dependency dependency, Node<TIn>&& ... args) :
         dependency(dependency),
-        expression(
+        expression(fun),
+        arguments(std::forward<TIn*>((TIn*)args)...)
+        /*expression(
                 std::bind(
                         std::forward<TFun>(fun),
-                        std::forward<TIn>((TIn)args)...
+                        std::forward<TIn>((TIn&)args)...
                 )
-        )/*,
-        num_changes(0)*/
+        )*/
     {
         //static_assert(sizeof...(TIn) == N, "Number of arguments not matching");
 
@@ -49,7 +50,6 @@ public:
 
     template<typename T>
     auto link_predecessors(Node<T>&& pred) -> void{
-        std::cout<<"Linking to " <<pred.get_value()<<std::endl;
         pred.link_successor(this);
     }
 
@@ -61,7 +61,8 @@ public:
 
 protected:
 
-    std::function<RetType()> expression;
+    std::function<RetType(TIn...)> expression;
+    std::tuple<TIn*...> arguments;
     Dependency dependency;
 
     //std::map<Node, bool> changes;
@@ -73,8 +74,13 @@ protected:
     }
 
     auto evaluate() -> void {
-        this->set_value(this->expression());
+        this->evaluate(SEQ::gen_seq<std::tuple_size<decltype(this->arguments)>::value>());
     };
+
+    template<int ...Is>
+    auto evaluate(SEQ::seq<Is...>) -> void {
+        this->set_value(this->expression((*std::get<Is>(this->arguments))...));
+    }
 
 };
 

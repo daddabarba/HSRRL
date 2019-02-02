@@ -9,6 +9,7 @@
 
 #include <stdarg.h>
 #include <vector>
+#include <functional>
 
 REACT_START
 
@@ -28,6 +29,14 @@ public:
 
     operator S() {
         return this->_value;
+    }
+
+    operator S&() {
+        return std::ref(_value);
+    }
+
+    operator S*(){
+        return &(this->_value);
     }
 
     auto link_successor(Node* successor) -> void{
