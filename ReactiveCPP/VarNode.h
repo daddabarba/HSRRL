@@ -25,7 +25,7 @@ template<
     typename TFun,
     typename ... TIn
 >
-class VarNode : Node<typename std::result_of<TFun(TIn...)>::type>{
+class VarNode : public Node<typename std::result_of<TFun(TIn...)>::type>{
 
 public:
 
@@ -43,12 +43,13 @@ public:
     {
         //static_assert(sizeof...(TIn) == N, "Number of arguments not matching");
 
+        this->evaluate();
         link_predecessors(std::forward<Node<TIn>>(args)...);
-        std::cout << this->expression();
     };
 
     template<typename T>
     auto link_predecessors(Node<T>&& pred) -> void{
+        std::cout<<"Linking to " <<pred.get_value()<<std::endl;
         pred.link_successor(this);
     }
 
