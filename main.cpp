@@ -6,9 +6,6 @@
 #include "ReactiveCPP/VarNode.h"
 #include "ReactiveCPP/ParameterNode.h"
 
-int f(int n){
-    return 2*(n);
-}
 
 int main() {
 
@@ -18,14 +15,12 @@ int main() {
     auto B = REACT_CONC::make_input(&bVal);
     auto C = REACT_CONC::make_input<int>(1);
 
-    auto par = REACT_CONC::make_parameter(*C);
-
     auto X = REACT_CONC::make_var(
             [](int a, int b, int c)->int{
                 return (a+b)*c;
             },
             REACT_CONC::ANY,
-            A, B, par
+            A, B, REACT_CONC::make_parameter(*C)
     );
 
 
