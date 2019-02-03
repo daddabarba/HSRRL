@@ -84,6 +84,19 @@ protected:
 
 };
 
+
+template<
+        typename TFun,
+        typename ... TIn
+>
+auto make_var(TFun&& fun, Dependency dependency, Node<TIn>* ... args) -> VarNode<TFun, TIn...>*{
+    return new VarNode<TFun, TIn...>(
+            std::forward<TFun>(fun),
+            dependency,
+            std::forward<Node<TIn>>(std::move(*args))...
+    );
+};
+
 REACT_CONC_END
 
 #endif //HSRRL_VALUENODE_H

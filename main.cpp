@@ -11,18 +11,21 @@ int f(int n){
 
 int main() {
 
-    REACT_CONC::InputNode<int> A(2);
-    REACT_CONC::InputNode<int> B(3);
+    auto A = REACT_CONC::make_input(2);
+    auto B = REACT_CONC::make_input(3);
 
-    typedef int (*fptr)(int,int);
-    REACT_CONC::VarNode<fptr,int,int> X([](int a, int b)->int{
-        return a+b;
-    }, REACT_CONC::ANY, std::move(A), std::move(B));
+    auto X = REACT_CONC::make_var(
+            [](int a, int b)->int{
+                return a+b;
+            },
+            REACT_CONC::ANY,
+            A, B
+    );
 
 
-    std::cout<<"a: " << A.get_value()<<" + b: " <<B.get_value() << " = x: " << X.get_value()<<std::endl;
-    A.set(4);
-    std::cout<<"a: " << A.get_value()<<" + b: " <<B.get_value() << " = x: " << X.get_value()<<std::endl;
+    std::cout<<"a: " << A->get_value()<<" + b: " <<B->get_value() << " = x: " << X->get_value()<<std::endl;
+    A->set(4);
+    std::cout<<"a: " << A->get_value()<<" + b: " <<B->get_value() << " = x: " << X->get_value()<<std::endl;
 
 
     return 0;

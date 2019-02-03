@@ -35,7 +35,7 @@ public:
         return std::ref(_value);
     }
 
-    operator S*(){
+    operator S*() {
         return &(this->_value);
     }
 

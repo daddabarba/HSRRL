@@ -16,7 +16,7 @@ class InputNode : public Node<S>{
 
 public:
 
-    explicit InputNode(S val) :
+    explicit InputNode(S&& val) :
             Node<S>(val)
     {};
 
@@ -27,6 +27,16 @@ public:
     }
 
 };
+
+template<typename S>
+auto make_input(S&& val) -> InputNode<S>*{
+    return new InputNode<S>(std::forward<S>(val));
+}
+
+template<typename S>
+auto make_input() -> InputNode<S>*{
+    return new InputNode<S>();
+}
 
 REACT_CONC_END
 
