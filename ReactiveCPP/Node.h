@@ -17,26 +17,32 @@ template<typename S>
 class Node {
 
 public:
-    explicit Node(S val):
-            _value(val)
+    explicit Node(S* val):
+        _value(val)
     {};
 
-    Node() = default;
+    Node() :
+        _value((S*)malloc(sizeof(S)))
+    {};
+
+    ~Node(){
+        free((S*)this);
+    }
 
     auto get_value() -> S{
-        return this->_value;
+        return *(this->_value);
     }
 
     operator S() {
-        return this->_value;
+        return this->get_value();
     }
 
     operator S&() {
-        return std::ref(_value);
+        return std::ref(*_value);
     }
 
     operator S*() {
-        return &(this->_value);
+        return this->_value;
     }
 
     auto link_successor(Node* successor) -> void{
@@ -45,21 +51,19 @@ public:
 
 protected:
 
-    S _value;
+    S* _value;
     std::vector<Node*> _successors;
 
-    virtual auto has_changed() -> void {
-        return;
-    };
+    virtual auto has_changed() -> void {};
 
-    auto notify_change() -> void {
+    virtual auto notify_change() -> void {
         for(Node* successor : _successors)
             successor->has_changed();
     }
 
     auto set_value(S value) -> void {
-        if(value != this->_value) {
-            this->_value = value;
+        if(value != this->get_value()) {
+            *(this->_value) = value;
             this->notify_change();
         }
     };

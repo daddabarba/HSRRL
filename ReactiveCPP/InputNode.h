@@ -16,7 +16,7 @@ class InputNode : public Node<S>{
 
 public:
 
-    explicit InputNode(S&& val) :
+    explicit InputNode(S* val) :
             Node<S>(val)
     {};
 
@@ -29,13 +29,13 @@ public:
 };
 
 template<typename S>
-auto make_input(S&& val) -> InputNode<S>*{
-    return new InputNode<S>(std::forward<S>(val));
+auto make_input(S* val) -> InputNode<S>*{
+    return new InputNode<S>(val);
 }
 
-template<typename S>
-auto make_input(S* val) -> InputNode<S>*{
-    return make_input(std::move(*val));
+template<typename S, typename ...TArgs>
+auto make_input(TArgs ... args) -> InputNode<S>*{
+    return make_input(new S(args...));
 }
 
 template<typename S>
