@@ -34,6 +34,11 @@ auto make_input(S&& val) -> InputNode<S>*{
 }
 
 template<typename S>
+auto make_input(S* val) -> InputNode<S>*{
+    return make_input(std::move(*val));
+}
+
+template<typename S>
 auto make_input() -> InputNode<S>*{
     return new InputNode<S>();
 }
