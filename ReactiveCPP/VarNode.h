@@ -32,9 +32,9 @@ public:
     using RetType = typename std::result_of<TFun(TIn...)>::type;
 
     VarNode(TFun&& fun, Dependency dependency, Node<TIn>&& ... args) :
-        dependency(dependency),
         expression(fun),
-        arguments(std::forward<TIn*>((TIn*)args)...)
+        arguments(std::forward<TIn*>((TIn*)args)...),
+        dependency(dependency)
         /*expression(
                 std::bind(
                         std::forward<TFun>(fun),
@@ -57,7 +57,7 @@ public:
     auto link_predecessors(Node<T>&& pred, Node<Ts>&& ...others ) -> void {
         link_predecessors(std::forward<Node<T>>(pred));
         link_predecessors(std::forward<Node<Ts>>(others)...);
-    };
+    }
 
 protected:
 
@@ -95,7 +95,7 @@ auto make_var(TFun&& fun, Dependency dependency, Node<TIn>* ... args) -> VarNode
             dependency,
             std::forward<Node<TIn>>(std::move(*args))...
     );
-};
+}
 
 REACT_CONC_END
 
