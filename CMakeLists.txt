@@ -1,7 +1,20 @@
-cmake_minimum_required(VERSION 3.8)
-project(HSRRL)
+cmake_minimum_required(VERSION 3.13)
+project(ReactTest)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp ReactiveCPP/Node.h ReactiveCPP/Defs.h ReactiveCPP/VarNode.h ReactiveCPP/InputNode.h main_test.cpp ReactiveCPP/utils.h ReactiveCPP/ParameterNode.h)
-add_executable(HSRRL ${SOURCE_FILES})
+# Armadillo
+find_package(Armadillo REQUIRED)
+include_directories(${ARMADILLO_INCLUDE_DIRS})
+
+# Boost
+find_package(Boost 1.58 COMPONENTS filesystem system REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIR})
+
+# flags
+set(GCC_COVERAGE_COMPILE_FLAGS "-O3 -march=native -larmadillo -fopenmp -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
+
+add_executable(ReactTest main.cpp ReactiveCPP/Node.h ReactiveCPP/ParameterNode.h ReactiveCPP/VarNode.h ReactiveCPP/InputNode.h)
+target_link_libraries(${PROJECT_NAME} ${ARMADILLO_LIBRARIES} ${Boost_LIBRARIES})
