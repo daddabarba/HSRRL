@@ -3,16 +3,16 @@
 
 #include "ReactiveCPP/Defs.h"
 
-#include "ReactiveCPP/InputNode.h"
+#include "ReactiveCPP/Variable.h"
 #include "ReactiveCPP/VarNode.h"
 #include "ReactiveCPP/ParameterNode.h"
 
 
 int main() {
 
-    auto A = REACT_CONC::make_input<arma::Mat<double>>(arma::randu(3, 3)*2 -1);
-    auto B = REACT_CONC::make_input<arma::Mat<double>>(arma::ones(3, 3)*2);
-    auto C = REACT_CONC::make_input<arma::Mat<double>>(arma::ones(3, 3)*3);
+    auto A = REACT_CONC::make_variable<arma::Mat<double>>(arma::randu(3, 3)*2 -1);
+    auto B = REACT_CONC::make_variable<arma::Mat<double>>(arma::ones(3, 3)*2);
+    auto C = REACT_CONC::make_variable<arma::Mat<double>>(arma::ones(3, 3)*3);
 
     std::cout << "Setting X"<<std::endl;
 
