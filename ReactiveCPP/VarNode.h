@@ -10,7 +10,6 @@
 #include <utility>
 #include <functional>
 #include <tuple>
-//#include <map>
 
 #include "Node.h"
 #include "utils.h"
@@ -35,15 +34,7 @@ public:
         expression(fun),
         arguments(std::forward<TIn*>((TIn*)args)...),
         dependency(dependency)
-        /*expression(
-                std::bind(
-                        std::forward<TFun>(fun),
-                        std::forward<TIn>((TIn&)args)...
-                )
-        )*/
     {
-        //static_assert(sizeof...(TIn) == N, "Number of arguments not matching");
-
         this->evaluate();
         link_predecessors(std::forward<Node<TIn>>(args)...);
     };
@@ -64,9 +55,6 @@ protected:
     std::function<RetType(TIn...)> expression;
     std::tuple<TIn*...> arguments;
     Dependency dependency;
-
-    //std::map<Node, bool> changes;
-    //int num_predecessors, num_changes;
 
     auto has_changed() -> void override {
         if( (this->dependency) == ANY )
