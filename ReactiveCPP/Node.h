@@ -62,10 +62,8 @@ protected:
     }
 
     auto set_value(S value) -> void {
-        if(value != this->get_value()) {
-            *(this->_value) = value;
-            this->notify_change();
-        }
+        *(this->_value) = value;
+        this->notify_change();
     };
 };
 
