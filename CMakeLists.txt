@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(ReactTest)
+project(HSRRL)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -16,5 +16,5 @@ link_directories(${Boost_LIBRARY_DIR})
 set(GCC_COVERAGE_COMPILE_FLAGS "-O3 -march=native -larmadillo -fopenmp -Wall")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
 
-add_executable(ReactTest main.cpp ReactiveCPP/ParameterNode.hpp ReactiveCPP/Operator.hpp ReactiveCPP/Variable.hpp ReactiveCPP/Notification.hpp)
+# add_executable(ReactTest main.cpp ReactiveCPP/ParameterNode.hpp ReactiveCPP/Operator.hpp ReactiveCPP/Variable.hpp ReactiveCPP/Notification.hpp RL/RL_Agent.cpp RL/RL_Agent.h)
 target_link_libraries(${PROJECT_NAME} ${ARMADILLO_LIBRARIES} ${Boost_LIBRARIES})
