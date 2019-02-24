@@ -16,9 +16,8 @@
 
 REACT_CONC_START
 
-enum Update_Type{
-    SET = 0, UPDATE = 1
-};
+
+// ABSTRACT OPERATOR
 
 template<
     typename TFun,
@@ -32,14 +31,9 @@ public:
     using RetType = typename std::result_of<TFun(TIn...)>::type;
 
     Operator(TFun&& fun, Variable<TOut>&& output, Variable<TIn>&& ... args) :
-        Operator(std::forward<TFun>(fun), SET, std::forward<Variable<TOut>>(output), std::forward<Variable<TIn>>(args)...)
-    {};
-
-    Operator(TFun&& fun, Update_Type update_type, Variable<TOut>&& output, Variable<TIn>&& ... args) :
         output(output),
         expression(fun),
-        arguments(std::forward<TIn*>((TIn*)args)...),
-        update_type(update_type)
+        arguments(std::forward<TIn*>((TIn*)args)...)
     {
         this->evaluate();
         link_predecessors(std::forward<Variable<TIn>>(args)...);
@@ -61,7 +55,6 @@ protected:
     Variable<TOut>& output;
     std::function<RetType(TIn...)> expression;
     std::tuple<TIn*...> arguments;
-    Update_Type update_type;
 
     auto has_changed() -> void override {
         this->evaluate();
@@ -73,21 +66,78 @@ protected:
 
     template<int ...Is>
     auto evaluate(SEQ::seq<Is...>) -> void {
-        this->output.set(this->expression((*std::get<Is>(this->arguments))...));
+        this->evaluate((TOut*)output, (*std::get<Is>(this->arguments))...);
+    }
+
+    virtual void evaluate(TOut*, TIn...) = 0;
+
+};
+
+// OPERATOR UPDATE
+
+template<
+        typename TFun,
+        typename TOut,
+        typename ...TIn
+>
+class Operator_Update : public Operator<TFun, TOut, TIn...>{
+
+public:
+
+    Operator_Update(TFun&& fun, Variable<TOut>&& output, Variable<TIn>&& ... args) :
+        Operator<TFun, TOut, TIn...>(
+                std::forward<TFun>(fun),
+                std::forward<Variable<TOut>>(output),
+                std::forward<Variable<TIn>>(args)...)
+    {};
+
+protected:
+
+    auto evaluate(TOut* out, TIn... arguments) -> void override{
+        this->expression(out, arguments...);
+        this->output.reload();
     }
 
 };
 
+
+// OPERATOR SET
+
+template<
+        typename TFun,
+        typename TOut,
+        typename ...TIn
+>
+class Operator_Set : public Operator<TFun, TOut, TIn...>{
+
+public:
+
+    Operator_Set(TFun&& fun, Variable<TOut>&& output, Variable<TIn>&& ... args) :
+            Operator<TFun, TOut, TIn...>(
+                    std::forward<TFun>(fun),
+                    std::forward<Variable<TOut>>(output),
+    std::forward<Variable<TIn>>(args)...)
+    {};
+
+protected:
+
+    auto evaluate(TOut*, TIn... arguments) -> void override{
+        this->output.set(this->expression(arguments...));
+    }
+
+};
+
+
+// CONSTRUCTOR HELPERS
 
 template<
         typename TFun,
         typename TOut,
         typename ... TIn
 >
-auto make_operator(TFun &&fun, Update_Type update_type, Variable <TOut> *output, Variable <TIn> *... args) -> Operator<TFun, TOut, TIn...>*{
-    return new Operator<TFun, TOut, TIn...>(
+auto make_operator_update(TFun &&fun, Variable <TOut> *output, Variable <TIn> *... args) -> Operator<TFun, TOut, TIn...>*{
+    return new Operator_Update<TFun, TOut, TIn...>(
             std::forward<TFun>(fun),
-            update_type,
             std::forward<Variable<TOut>>(std::move(*output)),
             std::forward<Variable<TIn>>(std::move(*args))...
     );
@@ -98,8 +148,8 @@ template<
         typename TOut,
         typename ... TIn
 >
-auto make_operator(TFun &&fun, Variable <TOut> *output, Variable <TIn> *... args) -> Operator<TFun, TOut, TIn...>*{
-    return new Operator<TFun, TOut, TIn...>(
+auto make_operator_set(TFun &&fun, Variable <TOut> *output, Variable <TIn> *... args) -> Operator<TFun, TOut, TIn...>*{
+    return new Operator_Set<TFun, TOut, TIn...>(
             std::forward<TFun>(fun),
             std::forward<Variable<TOut>>(std::move(*output)),
             std::forward<Variable<TIn>>(std::move(*args))...
