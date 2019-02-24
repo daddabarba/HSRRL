@@ -16,8 +16,8 @@
 
 REACT_CONC_START
 
-enum Dependency{
-    ALL = 0, ANY = 1
+enum Update_Type{
+    SET = 0, UPDATE = 1
 };
 
 template<
@@ -32,14 +32,14 @@ public:
     using RetType = typename std::result_of<TFun(TIn...)>::type;
 
     Operator(TFun&& fun, Variable<TOut>&& output, Variable<TIn>&& ... args) :
-        Operator(std::forward<TFun>(fun), ANY, std::forward<Variable<TOut>>(output), std::forward<Variable<TIn>>(args)...)
+        Operator(std::forward<TFun>(fun), SET, std::forward<Variable<TOut>>(output), std::forward<Variable<TIn>>(args)...)
     {};
 
-    Operator(TFun&& fun, Dependency dependency, Variable<TOut>&& output, Variable<TIn>&& ... args) :
+    Operator(TFun&& fun, Update_Type update_type, Variable<TOut>&& output, Variable<TIn>&& ... args) :
         output(output),
         expression(fun),
         arguments(std::forward<TIn*>((TIn*)args)...),
-        dependency(dependency)
+        update_type(update_type)
     {
         this->evaluate();
         link_predecessors(std::forward<Variable<TIn>>(args)...);
@@ -61,11 +61,10 @@ protected:
     Variable<TOut>& output;
     std::function<RetType(TIn...)> expression;
     std::tuple<TIn*...> arguments;
-    Dependency dependency;
+    Update_Type update_type;
 
     auto has_changed() -> void override {
-        if( (this->dependency) == ANY )
-            this->evaluate();
+        this->evaluate();
     }
 
     auto evaluate() -> void {
@@ -85,10 +84,10 @@ template<
         typename TOut,
         typename ... TIn
 >
-auto make_operator(TFun &&fun, Dependency dependency, Variable <TOut> *output, Variable <TIn> *... args) -> Operator<TFun, TOut, TIn...>*{
+auto make_operator(TFun &&fun, Update_Type update_type, Variable <TOut> *output, Variable <TIn> *... args) -> Operator<TFun, TOut, TIn...>*{
     return new Operator<TFun, TOut, TIn...>(
             std::forward<TFun>(fun),
-            dependency,
+            update_type,
             std::forward<Variable<TOut>>(std::move(*output)),
             std::forward<Variable<TIn>>(std::move(*args))...
     );
