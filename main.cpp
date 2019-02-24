@@ -20,7 +20,6 @@ int main() {
             [](arma::Mat<double> a, arma::Mat<double> b, arma::Mat<double> c) -> arma::Mat<double> {
                 return (a * b) + c;
             },
-            REACT_CONC::ANY,
             X, A, B, REACT_CONC::make_parameter(*C)
     );
 

@@ -31,6 +31,10 @@ public:
 
     using RetType = typename std::result_of<TFun(TIn...)>::type;
 
+    Operator(TFun&& fun, Variable<TOut>&& output, Variable<TIn>&& ... args) :
+        Operator(std::forward<TFun>(fun), ANY, std::forward<Variable<TOut>>(output), std::forward<Variable<TIn>>(args)...)
+    {};
+
     Operator(TFun&& fun, Dependency dependency, Variable<TOut>&& output, Variable<TIn>&& ... args) :
         output(output),
         expression(fun),
@@ -85,6 +89,19 @@ auto make_operator(TFun &&fun, Dependency dependency, Variable <TOut> *output, V
     return new Operator<TFun, TOut, TIn...>(
             std::forward<TFun>(fun),
             dependency,
+            std::forward<Variable<TOut>>(std::move(*output)),
+            std::forward<Variable<TIn>>(std::move(*args))...
+    );
+}
+
+template<
+        typename TFun,
+        typename TOut,
+        typename ... TIn
+>
+auto make_operator(TFun &&fun, Variable <TOut> *output, Variable <TIn> *... args) -> Operator<TFun, TOut, TIn...>*{
+    return new Operator<TFun, TOut, TIn...>(
+            std::forward<TFun>(fun),
             std::forward<Variable<TOut>>(std::move(*output)),
             std::forward<Variable<TIn>>(std::move(*args))...
     );
