@@ -11,7 +11,7 @@
 #include <functional>
 #include <tuple>
 
-#include "Node.h"
+#include "Notification.h"
 #include "utils.h"
 
 REACT_CONC_START
@@ -22,36 +22,39 @@ enum Dependency{
 
 template<
     typename TFun,
+    typename TOut,
     typename ... TIn
 >
-class VarNode : public Node<typename std::result_of<TFun(TIn...)>::type>{
+class Operator : public Observer{
 
 public:
 
     using RetType = typename std::result_of<TFun(TIn...)>::type;
 
-    VarNode(TFun&& fun, Dependency dependency, Node<TIn>&& ... args) :
+    Operator(TFun&& fun, Dependency dependency, Variable<TOut>&& output, Variable<TIn>&& ... args) :
+        output(output),
         expression(fun),
         arguments(std::forward<TIn*>((TIn*)args)...),
         dependency(dependency)
     {
         this->evaluate();
-        link_predecessors(std::forward<Node<TIn>>(args)...);
+        link_predecessors(std::forward<Variable<TIn>>(args)...);
     };
 
     template<typename T>
-    auto link_predecessors(Node<T>&& pred) -> void{
+    auto link_predecessors(Variable<T>&& pred) -> void{
         pred.link_successor(this);
     }
 
     template<typename T, typename ...Ts>
-    auto link_predecessors(Node<T>&& pred, Node<Ts>&& ...others ) -> void {
-        link_predecessors(std::forward<Node<T>>(pred));
-        link_predecessors(std::forward<Node<Ts>>(others)...);
+    auto link_predecessors(Variable<T>&& pred, Variable<Ts>&& ...others ) -> void {
+        link_predecessors(std::forward<Variable<T>>(pred));
+        link_predecessors(std::forward<Variable<Ts>>(others)...);
     }
 
 protected:
 
+    Variable<TOut>& output;
     std::function<RetType(TIn...)> expression;
     std::tuple<TIn*...> arguments;
     Dependency dependency;
@@ -67,7 +70,7 @@ protected:
 
     template<int ...Is>
     auto evaluate(SEQ::seq<Is...>) -> void {
-        this->set_value(this->expression((*std::get<Is>(this->arguments))...));
+        this->output.set(this->expression((*std::get<Is>(this->arguments))...));
     }
 
 };
@@ -75,13 +78,15 @@ protected:
 
 template<
         typename TFun,
+        typename TOut,
         typename ... TIn
 >
-auto make_var(TFun&& fun, Dependency dependency, Node<TIn>* ... args) -> VarNode<TFun, TIn...>*{
-    return new VarNode<TFun, TIn...>(
+auto make_operator(TFun &&fun, Dependency dependency, Variable <TOut> *output, Variable <TIn> *... args) -> Operator<TFun, TOut, TIn...>*{
+    return new Operator<TFun, TOut, TIn...>(
             std::forward<TFun>(fun),
             dependency,
-            std::forward<Node<TIn>>(std::move(*args))...
+            std::forward<Variable<TOut>>(std::move(*output)),
+            std::forward<Variable<TIn>>(std::move(*args))...
     );
 }
 

@@ -16,5 +16,5 @@ link_directories(${Boost_LIBRARY_DIR})
 set(GCC_COVERAGE_COMPILE_FLAGS "-O3 -march=native -larmadillo -fopenmp -Wall")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
 
-add_executable(ReactTest main.cpp ReactiveCPP/Node.h ReactiveCPP/ParameterNode.h ReactiveCPP/VarNode.h ReactiveCPP/Variable.h)
+add_executable(ReactTest main.cpp ReactiveCPP/ParameterNode.h ReactiveCPP/Operator.h ReactiveCPP/Variable.h ReactiveCPP/Notification.h)
 target_link_libraries(${PROJECT_NAME} ${ARMADILLO_LIBRARIES} ${Boost_LIBRARIES})

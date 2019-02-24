@@ -7,25 +7,52 @@
 
 #include "Defs.h"
 
-#include "Node.h"
+#include "Notification.h"
 
 REACT_CONC_START
 
 template<typename S>
-class Variable : public Node<S>{
+class Variable : public Observable{
 
 public:
 
-    explicit Variable(S* val) :
-            Node<S>(val)
+    explicit Variable(S* val):
+        _value(val)
     {};
 
-    Variable() = default;
+    Variable() :
+        _value((S*)malloc(sizeof(S)))
+    {};
 
-    auto set(S value) -> void{
-        this->set_value(value);
+    ~Variable(){
+        free((S*)this);
     }
 
+    auto get() -> S{
+        return *(this->_value);
+    }
+
+    auto set(S value) -> void {
+        *(this->_value) = value;
+        this->notify_change();
+    };
+
+
+    operator S() {
+        return this->get_value();
+    }
+
+    operator S&() {
+        return std::ref(*_value);
+    }
+
+    operator S*() {
+        return this->_value;
+    }
+
+protected:
+
+    S* _value;
 };
 
 template<typename S>

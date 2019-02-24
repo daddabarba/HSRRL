@@ -7,17 +7,17 @@
 
 #include "Defs.h"
 
-#include "Node.h"
+#include "Variable.h"
 
 REACT_CONC_START
 
 template<typename S>
-class ParameterNode : public Node<S>{
+class ParameterNode : public Variable<S>{
 
 public:
 
     explicit ParameterNode(S* val) :
-            Node<S>(val)
+            Variable<S>(val)
     {};
 
     ParameterNode() = default;
@@ -28,7 +28,7 @@ public:
 
 
 template<typename S>
-auto make_parameter(Node<S>& other) -> ParameterNode<S>*{
+auto make_parameter(Variable<S>& other) -> ParameterNode<S>*{
     return new ParameterNode<S>((S*)other);
 }
 
