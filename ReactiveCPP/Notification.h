@@ -2,8 +2,8 @@
 // Created by daddabarba on 24/02/19.
 //
 
-#ifndef REACTTEST_NOTIFICATION_H
-#define REACTTEST_NOTIFICATION_H
+#ifndef REACT_NOTIFICATION_H
+#define REACT_NOTIFICATION_H
 
 #include "Defs.h"
 
@@ -37,4 +37,4 @@ protected:
 REACT_CONC_END
 
 
-#endif //REACTTEST_NOTIFICATION_H
+#endif //REACT_NOTIFICATION_H

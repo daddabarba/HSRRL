@@ -2,8 +2,8 @@
 // Created by daddabarba on 2/1/19.
 //
 
-#ifndef HSRRL_DEFS_H
-#define HSRRL_DEFS_H
+#ifndef REACT_DEFS_H
+#define REACT_DEFS_H
 
 #pragma once
 
@@ -28,4 +28,4 @@
 #define SEQ_END UTIL_END }
 #define SEQ UTIL::SEQ_NS
 
-#endif //HSRRL_DEFS_H
+#endif //REACT_DEFS_H

@@ -2,8 +2,8 @@
 // Created by daddabarba on 2/2/19.
 //
 
-#ifndef HSRRL_UTILS_H
-#define HSRRL_UTILS_H
+#ifndef REACT_UTILS_H
+#define REACT_UTILS_H
 
 #include "Defs.h"
 
@@ -20,4 +20,4 @@ struct gen_seq<0, Is...> : seq<Is...> { };
 
 SEQ_END
 
-#endif //HSRRL_UTILS_H
+#endif //REACT_UTILS_H

@@ -2,8 +2,8 @@
 // Created by daddabarba on 2/2/19.
 //
 
-#ifndef HSRRL_INPUTNODE_H
-#define HSRRL_INPUTNODE_H
+#ifndef REACT_VARIABLE_H
+#define REACT_VARIABLE_H
 
 #include "Defs.h"
 
@@ -73,4 +73,4 @@ auto make_variable() -> Variable<S>*{
 REACT_CONC_END
 
 
-#endif //HSRRL_INPUTNODE_H
+#endif //REACT_VARIABLE_H

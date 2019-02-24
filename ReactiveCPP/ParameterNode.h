@@ -2,8 +2,8 @@
 // Created by daddabarba on 2/3/19.
 //
 
-#ifndef HSRRL_PARAMETERNODE_H
-#define HSRRL_PARAMETERNODE_H
+#ifndef REACT_PARAMETERNODE_H
+#define REACT_PARAMETERNODE_H
 
 #include "Defs.h"
 
@@ -44,4 +44,4 @@ auto make_parameter(TArgs ... args) -> ParameterNode<S>*{
 
 REACT_CONC_END
 
-#endif //HSRRL_PARAMETERNODE_H
+#endif //REACT_PARAMETERNODE_H

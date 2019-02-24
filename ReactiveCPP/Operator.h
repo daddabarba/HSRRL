@@ -2,8 +2,8 @@
 // Created by daddabarba on 2/1/19.
 //
 
-#ifndef HSRRL_VARNODE_H
-#define HSRRL_VARNODE_H
+#ifndef REACT_OPERATOR_H
+#define REACT_OPERATOR_H
 
 #include "Defs.h"
 
@@ -109,4 +109,4 @@ auto make_operator(TFun &&fun, Variable <TOut> *output, Variable <TIn> *... args
 
 REACT_CONC_END
 
-#endif //HSRRL_VALUENODE_H
+#endif //REACT_OPERATOR_H
