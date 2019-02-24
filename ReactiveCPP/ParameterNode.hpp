@@ -5,9 +5,9 @@
 #ifndef REACT_PARAMETERNODE_H
 #define REACT_PARAMETERNODE_H
 
-#include "Defs.h"
+#include "Defs.hpp"
 
-#include "Variable.h"
+#include "Variable.hpp"
 
 REACT_CONC_START
 

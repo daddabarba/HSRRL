@@ -5,9 +5,9 @@
 #ifndef REACT_VARIABLE_H
 #define REACT_VARIABLE_H
 
-#include "Defs.h"
+#include "Defs.hpp"
 
-#include "Notification.h"
+#include "Notification.hpp"
 
 REACT_CONC_START
 

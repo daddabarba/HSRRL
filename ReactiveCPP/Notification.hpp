@@ -5,7 +5,7 @@
 #ifndef REACT_NOTIFICATION_H
 #define REACT_NOTIFICATION_H
 
-#include "Defs.h"
+#include "Defs.hpp"
 
 REACT_CONC_START
 

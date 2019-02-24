@@ -1,11 +1,11 @@
 #include <iostream>
 #include <armadillo>
 
-#include "ReactiveCPP/Defs.h"
+#include "ReactiveCPP/Defs.hpp"
 
-#include "ReactiveCPP/Variable.h"
-#include "ReactiveCPP/Operator.h"
-#include "ReactiveCPP/ParameterNode.h"
+#include "ReactiveCPP/Variable.hpp"
+#include "ReactiveCPP/Operator.hpp"
+#include "ReactiveCPP/ParameterNode.hpp"
 
 
 int main() {
@@ -16,7 +16,7 @@ int main() {
 
     auto X = REACT_CONC::make_variable<arma::Mat<double>>();
 
-    REACT_CONC::make_operator(
+    REACT_CONC::make_operator_set(
             [](arma::Mat<double> a, arma::Mat<double> b, arma::Mat<double> c) -> arma::Mat<double> {
                 return (a * b) + c;
             },

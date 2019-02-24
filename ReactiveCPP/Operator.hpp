@@ -5,14 +5,14 @@
 #ifndef REACT_OPERATOR_H
 #define REACT_OPERATOR_H
 
-#include "Defs.h"
+#include "Defs.hpp"
 
 #include <utility>
 #include <functional>
 #include <tuple>
 
-#include "Notification.h"
-#include "utils.h"
+#include "Notification.hpp"
+#include "utils.hpp"
 
 REACT_CONC_START
 
