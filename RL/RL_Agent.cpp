@@ -13,6 +13,6 @@ auto RLIB_INTERFACES::RL_Agent::policy(State state) -> Action {
     return (Action)(this->P.get()).index_max();
 }
 
-auto RLIB_INTERFACES::RL_Agent::getP() -> decltype(this->P){
-    return P;
+auto RLIB_INTERFACES::RL_Agent::getP() -> arma::Mat<double>{
+    return (arma::Mat<double >)(this->P);
 }
