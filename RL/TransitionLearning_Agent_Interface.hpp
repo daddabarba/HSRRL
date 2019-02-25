@@ -8,6 +8,9 @@
 #include "Defs.hpp"
 #include "RL_Agent_Interface.hpp"
 
+#include "../ReactiveCPP/Defs.hpp"
+#include "../ReactiveCPP/Variable.hpp"
+
 RLIB_INTERFACES_START
 
 struct Transition {
@@ -21,7 +24,7 @@ class TransitionLearning_Agent_Interface : public RL_Agent_Interface {
     // Getters and Setters
 
     virtual void learn(Transition) = 0;
-    virtual Transition getTransition() = 0;
+    virtual REACT_CONC::Variable<Transition> getTransition() = 0;
 
 };
 

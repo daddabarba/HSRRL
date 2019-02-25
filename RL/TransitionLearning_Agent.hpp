@@ -25,7 +25,7 @@ public:
     // Getters and Setters
 
     void learn(RLIB_INTERFACES::Transition) override;
-    RLIB_INTERFACES::Transition getTransition() override;
+    REACT_CONC::Variable<RLIB_INTERFACES::Transition> getTransition() override;
 
 protected:
 
