@@ -32,6 +32,8 @@ public:
     REACT_CONC::Variable<State>* get_current_state() override;
     void set_current_state(State) override;
 
+    std::mt19937& get_generator() override;
+
 
 protected:
 

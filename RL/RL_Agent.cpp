@@ -31,3 +31,7 @@ auto RLIB_ABSTRACT::RL_Agent::get_current_state() -> REACT_CONC::Variable<State>
 auto RLIB_ABSTRACT::RL_Agent::set_current_state(State state) -> void {
     this->current_state->set(state);
 }
+
+auto RLIB_ABSTRACT::RL_Agent::get_generator() -> std::mt19937&{
+    return std::forward<std::mt19937&>(this->generator);
+}

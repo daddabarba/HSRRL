@@ -23,5 +23,5 @@ auto RLIB_INTERFACES::RL_Agent_Interface::policy() -> Action {
             [M](double i) -> double{
                 return M[(unsigned int)ceil(i*M.size()-0.5)];
             }
-    )(this->generator));
+    )(get_generator()));
 }

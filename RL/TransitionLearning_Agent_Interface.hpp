@@ -19,11 +19,11 @@ struct Transition {
     double r;
 };
 
-class TransitionLearning_Agent_Interface {
+class TransitionLearning_Agent_Interface : public RL_Agent_Interface{
 
     // Getters and Setters
 
-    virtual void learn(Transition) = 0;
+    virtual void learn(Transition);
     virtual REACT_CONC::Variable<Transition> getTransition() = 0;
 
 };

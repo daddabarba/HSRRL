@@ -39,6 +39,8 @@ public:
     virtual REACT_CONC::Variable<State>* get_current_state() = 0;
     virtual void set_current_state(State) = 0;
 
+    virtual std::mt19937& get_generator() = 0;
+
 };
 
 RLIB_INTERFACES_END

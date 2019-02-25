@@ -24,8 +24,14 @@ public:
 
     // Getters and Setters
 
-    void learn(RLIB_INTERFACES::Transition) override;
     REACT_CONC::Variable<RLIB_INTERFACES::Transition> getTransition() override;
+
+    // Inherited getters
+    using RL_Agent::getP;
+    using RL_Agent::get_current_state;
+    using RL_Agent::set_current_state;
+    using RL_Agent::get_S_size;
+    using RL_Agent::get_A_size;
 
 protected:
 
