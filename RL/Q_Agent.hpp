@@ -21,7 +21,11 @@ class Q_Agent : public TransitionLearning_Agent, ModelFree_Agent{
 
 public:
 
-    Q_Agent(int state_space_size, int action_space_size);
+    Q_Agent(Space_Size state_space_size, Space_Size action_space_size);
+
+    // Data retrieval
+    //double Q_fun(State, Action);
+    double U_fun(State);
 
     // Getters and Setters
 
