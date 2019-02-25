@@ -21,4 +21,6 @@
 typedef unsigned int Action;
 typedef unsigned int State;
 
+typedef unsigned int Space_Size;
+
 #endif //RLIB_DEFS_H
