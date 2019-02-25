@@ -7,6 +7,9 @@
 
 #include "Defs.hpp"
 
+#include "../ReactiveCPP/Defs.hpp"
+#include "../ReactiveCPP/Variable.hpp"
+
 #include <armadillo>
 #include <random>
 
@@ -24,9 +27,12 @@ public:
     // Data retrieval
     Action policy(State);
 
+    // Getters and Setters
+    arma::Mat<double> getP();
+
 
 protected:
-    arma::Mat<double> P;
+    REACT_CONC::Variable<arma::Mat<double>> P;
 };
 
 RLIB_INTERFACES_END
