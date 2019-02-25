@@ -29,8 +29,8 @@ public:
 
     // Getters and Setters
 
-    arma::Mat<double> getQ() override;
-    arma::Mat<double> getU() override;
+    REACT_CONC::Variable<arma::Mat<double>> getQ() override;
+    REACT_CONC::Variable<arma::Mat<double>> getU() override;
 
 protected:
 

@@ -12,17 +12,17 @@ RLIB_ABSTRACT::Q_Agent::Q_Agent(Space_Size state_space_size, Space_Size action_s
 {}
 
 auto RLIB_ABSTRACT::Q_Agent::U_fun(State state) -> double {
-    return ((arma::Mat<double>)this->Q).at((arma::uword)state);
+    return ((arma::Mat<double>)getU()).at((arma::uword)state);
 }
 
 auto RLIB_ABSTRACT::Q_Agent::Q_fun(State state, Action action) -> double {
-    reactcpp::((arma::Mat<double>)this->Q).at((arma::uword)(state + action*this->state_space_size));
+    reactcpp::((arma::Mat<double>)getQ()).at((arma::uword)(state + action*get_S_size()));
 }
 
-auto RLIB_ABSTRACT::Q_Agent::getQ() -> arma::Mat<double>{
-    return (arma::Mat<double>)(this->Q);
+auto RLIB_ABSTRACT::Q_Agent::getQ() -> REACT_CONC::Variable<arma::Mat<double>>{
+    return this->Q;
 }
 
-auto RLIB_ABSTRACT::Q_Agent::getU() -> arma::Mat<double>{
-    return (arma::Mat<double>)(this->U);
+auto RLIB_ABSTRACT::Q_Agent::getU() -> REACT_CONC::Variable<arma::Mat<double>>{
+    return this->U;
 }

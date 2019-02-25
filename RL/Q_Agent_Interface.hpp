@@ -8,6 +8,9 @@
 #include "Defs.hpp"
 #include "TransitionLearning_Agent_Interface.hpp"
 
+#include "../ReactiveCPP/Defs.hpp"
+#include "../ReactiveCPP/Variable.hpp"
+
 RLIB_INTERFACES_START
 
 class Q_Agent_Interface : public TransitionLearning_Agent_Interface {
@@ -18,8 +21,8 @@ class Q_Agent_Interface : public TransitionLearning_Agent_Interface {
 
     // Getters and Setters
 
-    virtual arma::Mat<double> getQ() = 0;
-    virtual arma::Mat<double> getU() = 0;
+    virtual REACT_CONC::Variable<arma::Mat<double>> getQ() = 0;
+    virtual REACT_CONC::Variable<arma::Mat<double>> getU() = 0;
 
 };
 
