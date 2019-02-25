@@ -8,7 +8,7 @@
 RLIB_ABSTRACT::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_space_size) :
     state_space_size(state_space_size),
     action_space_size(action_space_size),
-    P(arma::Mat<double>(1, (const arma::uword) action_space_size)),
+    P(REACT_CONC::make_variable<arma::Mat<double>>(arma::Mat<double>(action_space_size, 1))),
     generator((unsigned long)time(nullptr))
 {}
 
@@ -17,12 +17,12 @@ auto RLIB_ABSTRACT::RL_Agent::init() -> void{
 }
 
 auto RLIB_ABSTRACT::RL_Agent::policy(State state) -> Action {
-    get_current_state().set(state);
+    get_current_state()->set(state);
     return this->policy();
 }
 
 auto RLIB_ABSTRACT::RL_Agent::policy() -> Action {
-    auto M = (arma::Mat<double>)getP();
+    auto M = (arma::Mat<double>)*getP();
     return ((Action)std::discrete_distribution<int>(
                 M.size(),
                 0.0,
@@ -41,14 +41,14 @@ auto RLIB_ABSTRACT::RL_Agent::get_A_size() -> Space_Size{
     return this->action_space_size;
 }
 
-auto RLIB_ABSTRACT::RL_Agent::getP() -> REACT_CONC::Variable<arma::Mat<double>>{
+auto RLIB_ABSTRACT::RL_Agent::getP() -> REACT_CONC::Variable<arma::Mat<double>>*{
     return this->P;
 }
 
-auto RLIB_ABSTRACT::RL_Agent::get_current_state() -> REACT_CONC::Variable<State> {
+auto RLIB_ABSTRACT::RL_Agent::get_current_state() -> REACT_CONC::Variable<State>* {
     return this->current_state;
 }
 
 auto RLIB_ABSTRACT::RL_Agent::set_current_state(State state) -> void {
-    this->current_state.set(state);
+    this->current_state->set(state);
 }

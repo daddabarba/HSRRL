@@ -23,18 +23,21 @@ public:
 
     Q_Agent(Space_Size state_space_size, Space_Size action_space_size);
 
+    //RL algorithms
+    void setU() override;
+
     // Data retrieval
     double U_fun(State) override;
     double Q_fun(State, Action) override;
 
     // Getters and Setters
 
-    REACT_CONC::Variable<arma::Mat<double>> getQ() override;
-    REACT_CONC::Variable<arma::Mat<double>> getU() override;
+    REACT_CONC::Variable<arma::Mat<double>>* getQ() override;
+    REACT_CONC::Variable<arma::Mat<double>>* getU() override;
 
 protected:
 
-    REACT_CONC::Variable<arma::Mat<double>> Q, U;
+    REACT_CONC::Variable<arma::Mat<double>> *Q, *U;
 
 };
 

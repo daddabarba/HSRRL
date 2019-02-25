@@ -15,14 +15,18 @@ RLIB_INTERFACES_START
 
 class Q_Agent_Interface {
 
+    // RL algorithms
+    virtual void setQ() = 0;
+    virtual void setU() = 0;
+
     // Data retrieval
     virtual double U_fun(State) = 0;
     virtual double Q_fun(State, Action) = 0;
 
     // Getters and Setters
 
-    virtual REACT_CONC::Variable<arma::Mat<double>> getQ() = 0;
-    virtual REACT_CONC::Variable<arma::Mat<double>> getU() = 0;
+    virtual REACT_CONC::Variable<arma::Mat<double>>* getQ() = 0;
+    virtual REACT_CONC::Variable<arma::Mat<double>>* getU() = 0;
 
 };
 
