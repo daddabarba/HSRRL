@@ -36,11 +36,11 @@ public:
         this->notify_change();
     }
 
-    operator S() {
+    virtual operator S() {
         return std::forward<S>(_value);
     }
 
-    operator S*() {
+    virtual operator S*() {
         return &(_value);
     }
 
