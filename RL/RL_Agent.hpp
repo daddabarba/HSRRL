@@ -30,9 +30,13 @@ public:
     // Getters and Setters
     arma::Mat<double> getP();
 
+    State get_current_state();
+    void set_current_state(State);
+
 
 protected:
     REACT_CONC::Variable<arma::Mat<double>> P;
+    REACT_CONC::Variable<State> current_state;
 };
 
 RLIB_INTERFACES_END
