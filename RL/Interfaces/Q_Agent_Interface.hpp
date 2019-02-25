@@ -5,11 +5,11 @@
 #ifndef HSRRL_Q_AGENT_INTERFACE_HPP
 #define HSRRL_Q_AGENT_INTERFACE_HPP
 
-#include "Defs.hpp"
+#include "../Defs.hpp"
 #include "TransitionLearning_Agent_Interface.hpp"
 
-#include "../ReactiveCPP/Defs.hpp"
-#include "../ReactiveCPP/Variable.hpp"
+#include "../../ReactiveCPP/Defs.hpp"
+#include "../../ReactiveCPP/Variable.hpp"
 
 RLIB_INTERFACES_START
 

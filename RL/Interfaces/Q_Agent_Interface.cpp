@@ -3,10 +3,10 @@
 //
 
 #include "Q_Agent_Interface.hpp"
-#include "Defs.hpp"
+#include "../Defs.hpp"
 
-#include "../ReactiveCPP/Defs.hpp"
-#include "../ReactiveCPP/Operator.hpp"
+#include "../../ReactiveCPP/Defs.hpp"
+#include "../../ReactiveCPP/Operator.hpp"
 
 auto RLIB_INTERFACES::Q_Agent_Interface::setU() -> void {
     REACT_CONC::make_operator_set([](arma::Mat<double> Q, arma::Mat<double> Pi) -> arma::Mat<double>{

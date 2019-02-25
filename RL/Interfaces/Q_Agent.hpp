@@ -5,13 +5,13 @@
 #ifndef RLIB_Q_AGENT_HPP
 #define RLIB_Q_AGENT_HPP
 
-#include "Defs.hpp"
+#include "../Defs.hpp"
 
 #include "TransitionLearning_Agent.hpp"
 #include "Q_Agent_Interface.hpp"
 
-#include "../ReactiveCPP/Defs.hpp"
-#include "../ReactiveCPP/Variable.hpp"
+#include "../../ReactiveCPP/Defs.hpp"
+#include "../../ReactiveCPP/Variable.hpp"
 
 #include <armadillo>
 

@@ -3,7 +3,7 @@
 //
 
 #include "RL_Agent.hpp"
-#include "Defs.hpp"
+#include "../Defs.hpp"
 
 RLIB_ABSTRACT::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_space_size) :
     state_space_size(state_space_size),

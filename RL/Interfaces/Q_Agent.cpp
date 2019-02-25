@@ -3,7 +3,7 @@
 //
 
 #include "Q_Agent.hpp"
-#include "Defs.hpp"
+#include "../Defs.hpp"
 
 RLIB_ABSTRACT::Q_Agent::Q_Agent(Space_Size state_space_size, Space_Size action_space_size) :
         TransitionLearning_Agent(state_space_size, action_space_size),

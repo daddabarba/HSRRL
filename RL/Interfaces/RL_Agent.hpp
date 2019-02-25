@@ -5,11 +5,11 @@
 #ifndef RLIB_RL_AGENT_H
 #define RLIB_RL_AGENT_H
 
-#include "Defs.hpp"
+#include "../Defs.hpp"
 #include "RL_Agent_Interface.hpp"
 
-#include "../ReactiveCPP/Defs.hpp"
-#include "../ReactiveCPP/Variable.hpp"
+#include "../../ReactiveCPP/Defs.hpp"
+#include "../../ReactiveCPP/Variable.hpp"
 
 #include <armadillo>
 #include <random>

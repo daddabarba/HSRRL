@@ -5,14 +5,14 @@
 #ifndef RLIB_TRANSITIONLEARNING_AGENT_H
 #define RLIB_TRANSITIONLEARNING_AGENT_H
 
-#include "Defs.hpp"
+#include "../Defs.hpp"
 
 #include "RL_Agent.hpp"
 
 #include "TransitionLearning_Agent_Interface.hpp"
 
-#include "../ReactiveCPP/Defs.hpp"
-#include "../ReactiveCPP/Variable.hpp"
+#include "../../ReactiveCPP/Defs.hpp"
+#include "../../ReactiveCPP/Variable.hpp"
 
 RLIB_ABSTRACT_START
 
