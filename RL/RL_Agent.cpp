@@ -5,12 +5,19 @@
 #include "RL_Agent.hpp"
 #include "Defs.hpp"
 
-RLIB_INTERFACES::RL_Agent::RL_Agent(int state_space_size) :
-    P(new arma::Mat<double>(1, (const arma::uword) state_space_size)),
-    generator((unsigned long)time(0))
+RLIB_INTERFACES::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_space_size) :
+    state_space_size(state_space_size),
+    action_space_size(action_space_size),
+    P(new arma::Mat<double>(1, (const arma::uword) action_space_size)),
+    generator((unsigned long)time(nullptr))
 {}
 
-auto RLIB_INTERFACES::RL_Agent::policy(State state) -> Action {
+auto RLIB_INTERFACES::RL_Agent::policy(State state) -> Action{
+    this->current_state.set(state);
+    return this->policy();
+}
+
+auto RLIB_INTERFACES::RL_Agent::policy() -> Action {
     auto M = (arma::Mat<double>)P;
     return ((Action)std::discrete_distribution<int>(
                 M.size(),
@@ -20,6 +27,14 @@ auto RLIB_INTERFACES::RL_Agent::policy(State state) -> Action {
                     return M[(unsigned int)ceil(i*M.size()-0.5)];
                 }
             )(this->generator));
+}
+
+auto RLIB_INTERFACES::RL_Agent::get_S_size() -> Space_Size{
+    return this->state_space_size;
+}
+
+auto RLIB_INTERFACES::RL_Agent::get_A_size() -> Space_Size{
+    return this->action_space_size;
 }
 
 auto RLIB_INTERFACES::RL_Agent::getP() -> arma::Mat<double>{

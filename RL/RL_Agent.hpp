@@ -19,15 +19,20 @@ class RL_Agent {
 
 public:
 
-    explicit RL_Agent(int state_space_size);
+    RL_Agent(Space_Size state_space_size, Space_Size action_space_size);
 
     // RL algorithms
     virtual void setPolicy() = 0;
 
     // Data retrieval
     Action policy(State);
+    Action policy();
 
     // Getters and Setters
+
+    Space_Size get_S_size();
+    Space_Size get_A_size();
+
     arma::Mat<double> getP();
 
     State get_current_state();
@@ -35,6 +40,9 @@ public:
 
 
 protected:
+
+    Space_Size state_space_size, action_space_size;
+
     REACT_CONC::Variable<arma::Mat<double>> P;
     REACT_CONC::Variable<State> current_state;
 

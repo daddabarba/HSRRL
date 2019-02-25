@@ -24,14 +24,14 @@ class TransitionLearning_Agent : public RL_Agent{
 
 public:
 
-    explicit TransitionLearning_Agent(int state_space_size);
+    TransitionLearning_Agent(Space_Size state_space_size, Space_Size action_space_size);
 
     // Getters and Setters
 
     void learn(Transition);
     Transition getTransition();
 
-private:
+protected:
 
     REACT_CONC::Variable<Transition> t;
 };
