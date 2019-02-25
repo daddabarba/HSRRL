@@ -20,6 +20,8 @@ set(SOURCES ${SOURCES}
         RL/TransitionLearning_Agent.hpp
         RL/ModelFree_Agent.cpp
         RL/ModelFree_Agent.hpp
+        RL/Q_Agent.cpp
+        RL/Q_Agent.hpp
 )
 
 # Armadillo
