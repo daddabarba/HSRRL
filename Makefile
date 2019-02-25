@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/bin/app/CLion-2018.1.2/clion-2018.1.2/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -177,6 +177,33 @@ RL/RL_Agent.cpp.s:
 	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/RL_Agent.cpp.s
 .PHONY : RL/RL_Agent.cpp.s
 
+RL/RL_Agent_Interface.o: RL/RL_Agent_Interface.cpp.o
+
+.PHONY : RL/RL_Agent_Interface.o
+
+# target to build an object file
+RL/RL_Agent_Interface.cpp.o:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/RL_Agent_Interface.cpp.o
+.PHONY : RL/RL_Agent_Interface.cpp.o
+
+RL/RL_Agent_Interface.i: RL/RL_Agent_Interface.cpp.i
+
+.PHONY : RL/RL_Agent_Interface.i
+
+# target to preprocess a source file
+RL/RL_Agent_Interface.cpp.i:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/RL_Agent_Interface.cpp.i
+.PHONY : RL/RL_Agent_Interface.cpp.i
+
+RL/RL_Agent_Interface.s: RL/RL_Agent_Interface.cpp.s
+
+.PHONY : RL/RL_Agent_Interface.s
+
+# target to generate assembly for a file
+RL/RL_Agent_Interface.cpp.s:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/RL_Agent_Interface.cpp.s
+.PHONY : RL/RL_Agent_Interface.cpp.s
+
 RL/TransitionLearning_Agent.o: RL/TransitionLearning_Agent.cpp.o
 
 .PHONY : RL/TransitionLearning_Agent.o
@@ -246,6 +273,9 @@ help:
 	@echo "... RL/RL_Agent.o"
 	@echo "... RL/RL_Agent.i"
 	@echo "... RL/RL_Agent.s"
+	@echo "... RL/RL_Agent_Interface.o"
+	@echo "... RL/RL_Agent_Interface.i"
+	@echo "... RL/RL_Agent_Interface.s"
 	@echo "... RL/TransitionLearning_Agent.o"
 	@echo "... RL/TransitionLearning_Agent.i"
 	@echo "... RL/TransitionLearning_Agent.s"

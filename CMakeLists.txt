@@ -14,6 +14,7 @@ set(SOURCES ${SOURCES}
 
 set(SOURCES ${SOURCES}
         RL/Defs.hpp
+        RL/RL_Agent_Interface.cpp
         RL/RL_Agent_Interface.hpp
         RL/RL_Agent.cpp
         RL/RL_Agent.hpp

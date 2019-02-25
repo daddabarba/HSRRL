@@ -20,14 +20,14 @@ class RL_Agent_Interface {
 public:
 
     // Overwrite variables definitions
-    virtual void init() = 0;
+    virtual void init();
 
     // RL algorithms
     virtual void setPolicy() = 0;
 
     // Data retrieval
-    virtual Action policy(State) = 0;
-    virtual Action policy() = 0;
+    virtual Action policy(State);
+    virtual Action policy();
 
     // Getters and Setters
 
