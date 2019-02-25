@@ -7,6 +7,9 @@
 
 #include "Defs.hpp"
 
+#include "../ReactiveCPP/Defs.hpp"
+#include "../ReactiveCPP/Variable.hpp"
+
 #include <armadillo>
 #include <random>
 
@@ -28,9 +31,9 @@ public:
     virtual Space_Size get_S_size() = 0;
     virtual Space_Size get_A_size() = 0;
 
-    virtual arma::Mat<double> getP() = 0;
+    virtual REACT_CONC::Variable<arma::Mat<double>> getP() = 0;
 
-    virtual State get_current_state() = 0;
+    virtual REACT_CONC::Variable<State> get_current_state() = 0;
     virtual void set_current_state(State) = 0;
 
 };

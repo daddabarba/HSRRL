@@ -31,9 +31,9 @@ public:
     Space_Size get_S_size() override;
     Space_Size get_A_size() override;
 
-    arma::Mat<double> getP() override;
+    REACT_CONC::Variable<arma::Mat<double>> getP() override;
 
-    State get_current_state() override;
+    REACT_CONC::Variable<State> get_current_state() override;
     void set_current_state(State) override;
 
 
