@@ -13,7 +13,11 @@ RLIB_INTERFACES::Q_Agent::Q_Agent(Space_Size state_space_size, Space_Size action
 {}
 
 auto RLIB_INTERFACES::Q_Agent::U_fun(State state) -> double {
-    return ((arma::Mat<double_t >)(this->Q)).at((arma::uword)state);
+    return ((arma::Mat<double>)this->Q).at((arma::uword)state);
+}
+
+auto RLIB_INTERFACES::Q_Agent::Q_fun(State state, Action action) -> double {
+    reactcpp::((arma::Mat<double>)this->Q).at((arma::uword)(state + action*this->state_space_size));
 }
 
 auto RLIB_INTERFACES::Q_Agent::getQ() -> arma::Mat<double>{

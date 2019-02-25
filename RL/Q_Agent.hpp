@@ -26,6 +26,7 @@ public:
     // Data retrieval
     //double Q_fun(State, Action);
     double U_fun(State);
+    double Q_fun(State, Action);
 
     // Getters and Setters
 
