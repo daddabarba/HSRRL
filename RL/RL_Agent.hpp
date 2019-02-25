@@ -22,6 +22,9 @@ public:
 
     RL_Agent(Space_Size state_space_size, Space_Size action_space_size);
 
+    // Overwrite variables definitions
+    virtual void init() override;
+
     // Data retrieval
     Action policy(State) override;
     Action policy() override;

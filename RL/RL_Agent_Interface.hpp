@@ -19,6 +19,9 @@ class RL_Agent_Interface {
 
 public:
 
+    // Overwrite variables definitions
+    virtual void init() = 0;
+
     // RL algorithms
     virtual void setPolicy() = 0;
 
