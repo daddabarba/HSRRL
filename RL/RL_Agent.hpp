@@ -37,6 +37,8 @@ public:
 protected:
     REACT_CONC::Variable<arma::Mat<double>> P;
     REACT_CONC::Variable<State> current_state;
+
+    std::mt19937 generator;
 };
 
 RLIB_INTERFACES_END
