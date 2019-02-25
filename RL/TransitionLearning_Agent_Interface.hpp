@@ -19,7 +19,7 @@ struct Transition {
     double r;
 };
 
-class TransitionLearning_Agent_Interface : public RL_Agent_Interface {
+class TransitionLearning_Agent_Interface {
 
     // Getters and Setters
 

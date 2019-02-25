@@ -7,6 +7,8 @@
 
 #include "Defs.hpp"
 
+#include <vector>
+
 REACT_CONC_START
 
 class Observer {

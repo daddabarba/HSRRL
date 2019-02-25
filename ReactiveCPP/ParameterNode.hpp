@@ -11,35 +11,32 @@
 
 REACT_CONC_START
 
+template <typename S>
+using Nested_Var = Variable<Variable<S>>;
+
 template<typename S>
-class ParameterNode : public Variable<S>{
+class ParameterNode : public Nested_Var<S>{
 
 public:
 
-    explicit ParameterNode(S* val) :
-            Variable<S>(val)
+    explicit ParameterNode(Variable<S> val) :
+            Nested_Var<S>(val)
     {};
-
-    ParameterNode() = default;
 
     auto notify_change() -> void override {}
 
+    auto set(Variable<S> value) -> void override {};
 };
 
 
 template<typename S>
 auto make_parameter(Variable<S>& other) -> ParameterNode<S>*{
-    return new ParameterNode<S>((S*)other);
+    return new ParameterNode<S>(std::forward<Variable<S>>(other));
 }
 
 template<typename S>
-auto make_parameter(S* val) -> ParameterNode<S>*{
-    return new ParameterNode<S>(val);
-}
-
-template<typename S, typename ...TArgs>
-auto make_parameter(TArgs ... args) -> ParameterNode<S>*{
-    return make_parameter(new S(args...));
+auto make_parameter(Variable<S>* other) -> ParameterNode<S>*{
+    return new ParameterNode<S>(std::forward<Variable<S>>(*other));
 }
 
 REACT_CONC_END

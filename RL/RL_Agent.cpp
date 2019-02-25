@@ -8,7 +8,7 @@
 RLIB_ABSTRACT::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_space_size) :
     state_space_size(state_space_size),
     action_space_size(action_space_size),
-    P(new arma::Mat<double>(1, (const arma::uword) action_space_size)),
+    P(arma::Mat<double>(1, (const arma::uword) action_space_size)),
     generator((unsigned long)time(nullptr))
 {}
 

@@ -13,7 +13,7 @@
 
 RLIB_INTERFACES_START
 
-class Q_Agent_Interface : public TransitionLearning_Agent_Interface {
+class Q_Agent_Interface {
 
     // Data retrieval
     virtual double U_fun(State) = 0;
