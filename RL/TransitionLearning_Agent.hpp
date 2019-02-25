@@ -24,7 +24,7 @@ class TransitionLearning_Agent : public RL_Agent{
 
 public:
 
-    TransitionLearning_Agent(int state_space_size);
+    explicit TransitionLearning_Agent(int state_space_size);
 
     // Getters and Setters
 

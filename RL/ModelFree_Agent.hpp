@@ -14,7 +14,7 @@ class ModelFree_Agent : public RL_Agent {
 
 public:
 
-    ModelFree_Agent(int state_space_size);
+    explicit ModelFree_Agent(int state_space_size);
 
 };
 

@@ -19,7 +19,7 @@ class RL_Agent {
 
 public:
 
-    RL_Agent(int state_space_size);
+    explicit RL_Agent(int state_space_size);
 
     // RL algorithms
     virtual void setPolicy() = 0;
