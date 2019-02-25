@@ -28,14 +28,6 @@ public:
     REACT_CONC::Variable<arma::Mat<double>>* getQ() override;
     REACT_CONC::Variable<arma::Mat<double>>* getU() override;
 
-    // Inherited getters and setters
-    using TransitionLearning_Agent::getP;
-    using TransitionLearning_Agent::get_current_state;
-    using TransitionLearning_Agent::set_current_state;
-    using TransitionLearning_Agent::get_S_size;
-    using TransitionLearning_Agent::get_A_size;
-    using TransitionLearning_Agent::getTransition;
-
 protected:
 
     REACT_CONC::Variable<arma::Mat<double>> *Q, *U;
