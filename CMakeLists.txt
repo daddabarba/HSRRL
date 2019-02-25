@@ -22,6 +22,7 @@ set(SOURCES ${SOURCES}
         RL/TransitionLearning_Agent_Interface.hpp
         RL/TransitionLearning_Agent.cpp
         RL/TransitionLearning_Agent.hpp
+        RL/Q_Agent_Interface.cpp
         RL/Q_Agent_Interface.hpp
         RL/Q_Agent.cpp
         RL/Q_Agent.hpp
