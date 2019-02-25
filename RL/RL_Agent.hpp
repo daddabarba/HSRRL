@@ -6,6 +6,7 @@
 #define RLIB_RL_AGENT_H
 
 #include "Defs.hpp"
+#include "RL_Agent_Interface.hpp"
 
 #include "../ReactiveCPP/Defs.hpp"
 #include "../ReactiveCPP/Variable.hpp"
@@ -13,30 +14,27 @@
 #include <armadillo>
 #include <random>
 
-RLIB_INTERFACES_START
+RLIB_ABSTRACT_START
 
-class RL_Agent {
+class RL_Agent : public RLIB_INTERFACES::RL_Agent_Interface{
 
 public:
 
     RL_Agent(Space_Size state_space_size, Space_Size action_space_size);
 
-    // RL algorithms
-    virtual void setPolicy() = 0;
-
     // Data retrieval
-    Action policy(State);
-    Action policy();
+    Action policy(State) override;
+    Action policy() override;
 
     // Getters and Setters
 
-    Space_Size get_S_size();
-    Space_Size get_A_size();
+    Space_Size get_S_size() override;
+    Space_Size get_A_size() override;
 
-    arma::Mat<double> getP();
+    arma::Mat<double> getP() override;
 
-    State get_current_state();
-    void set_current_state(State);
+    State get_current_state() override;
+    void set_current_state(State) override;
 
 
 protected:
@@ -49,5 +47,5 @@ protected:
     std::mt19937 generator;
 };
 
-RLIB_INTERFACES_END
+RLIB_ABSTRACT_END
 #endif //RLIB_RL_AGENT_H

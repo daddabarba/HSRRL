@@ -14,12 +14,13 @@ set(SOURCES ${SOURCES}
 
 set(SOURCES ${SOURCES}
         RL/Defs.hpp
+        RL/RL_Agent_Interface.hpp
         RL/RL_Agent.cpp
         RL/RL_Agent.hpp
+        RL/TransitionLearning_Agent_Interface.hpp
         RL/TransitionLearning_Agent.cpp
         RL/TransitionLearning_Agent.hpp
-        RL/ModelFree_Agent.cpp
-        RL/ModelFree_Agent.hpp
+        RL/Q_Agent_Interface.hpp
         RL/Q_Agent.cpp
         RL/Q_Agent.hpp
 )

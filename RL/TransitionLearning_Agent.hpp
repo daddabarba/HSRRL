@@ -9,18 +9,14 @@
 
 #include "RL_Agent.hpp"
 
+#include "TransitionLearning_Agent_Interface.hpp"
+
 #include "../ReactiveCPP/Defs.hpp"
 #include "../ReactiveCPP/Variable.hpp"
 
-RLIB_INTERFACES_START
+RLIB_ABSTRACT_START
 
-struct Transition {
-    State s_start, s_end;
-    Action a;
-    double r;
-};
-
-class TransitionLearning_Agent : public RL_Agent{
+class TransitionLearning_Agent : public RL_Agent, RLIB_INTERFACES::TransitionLearning_Agent_Interface{
 
 public:
 
@@ -28,14 +24,14 @@ public:
 
     // Getters and Setters
 
-    void learn(Transition);
-    Transition getTransition();
+    void learn(RLIB_INTERFACES::Transition) override;
+    RLIB_INTERFACES::Transition getTransition() override;
 
 protected:
 
-    REACT_CONC::Variable<Transition> t;
+    REACT_CONC::Variable<RLIB_INTERFACES::Transition> t;
 };
 
-RLIB_INTERFACES_END
+RLIB_ABSTRACT_END
 
 #endif //RLIB_TRANSITIONLEARNING_AGENT_H
