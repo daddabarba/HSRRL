@@ -23,6 +23,7 @@ public:
     RL_Agent(Space_Size state_space_size, Space_Size action_space_size);
 
     // Getters and Setters
+    auto setPolicy() -> void override {};
 
     Space_Size get_S_size() override;
     Space_Size get_A_size() override;

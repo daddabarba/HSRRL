@@ -22,14 +22,12 @@ public:
     // Overwrite variables definitions
     virtual void init();
 
-    // RL algorithms
-    virtual void setPolicy() = 0;
-
     // Data retrieval
     virtual Action policy(State);
     virtual Action policy();
 
     // Getters and Setters
+    virtual void setPolicy() = 0;
 
     virtual Space_Size get_S_size() = 0;
     virtual Space_Size get_A_size() = 0;

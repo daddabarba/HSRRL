@@ -24,6 +24,7 @@ public:
     Q_Agent(Space_Size state_space_size, Space_Size action_space_size);
 
     // Getters and Setters
+    auto setQ() -> void override {};
 
     REACT_CONC::Variable<arma::Mat<double>>* getQ() override;
     REACT_CONC::Variable<arma::Mat<double>>* getU() override;

@@ -15,15 +15,13 @@ RLIB_INTERFACES_START
 
 class Q_Agent_Interface : public TransitionLearning_Agent_Interface{
 
-    // RL algorithms
-    virtual void setQ() = 0;
-    virtual void setU();
-
     // Data retrieval
     virtual double U_fun(State);
     virtual double Q_fun(State, Action);
 
     // Getters and Setters
+    virtual void setQ() = 0;
+    virtual void setU();
 
     virtual REACT_CONC::Variable<arma::Mat<double>>* getQ() = 0;
     virtual REACT_CONC::Variable<arma::Mat<double>>* getU() = 0;
