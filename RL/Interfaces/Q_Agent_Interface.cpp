@@ -8,6 +8,13 @@
 #include "../../ReactiveCPP/Defs.hpp"
 #include "../../ReactiveCPP/Operator.hpp"
 
+auto RLIB_INTERFACES::Q_Agent_Interface::init() -> void {
+    TransitionLearning_Agent_Interface::init();
+
+    setU();
+    setQ();
+}
+
 auto RLIB_INTERFACES::Q_Agent_Interface::setU() -> void {
     REACT_CONC::make_operator_set([](arma::Mat<double> Q, arma::Mat<double> Pi) -> arma::Mat<double>{
         return Q*Pi;

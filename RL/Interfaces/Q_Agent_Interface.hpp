@@ -15,6 +15,9 @@ RLIB_INTERFACES_START
 
 class Q_Agent_Interface : public TransitionLearning_Agent_Interface{
 
+    // Overwrite variables definitions
+    void init() override;
+
     // Data retrieval
     virtual double U_fun(State);
     virtual double Q_fun(State, Action);
