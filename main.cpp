@@ -7,7 +7,6 @@
 #include "ReactiveCPP/Operator.hpp"
 #include "ReactiveCPP/ParameterNode.hpp"
 
-
 int main() {
 
     auto A = REACT_CONC::make_variable<arma::Mat<double>>(arma::randu(3, 3)*2 -1);

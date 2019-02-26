@@ -123,167 +123,167 @@ HSRRL/fast:
 	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/build
 .PHONY : HSRRL/fast
 
-RL/Interfaces/Q_Agent.o: RL/Interfaces/Q_Agent.cpp.o
+RLIB/Interfaces/Q_Agent.o: RLIB/Interfaces/Q_Agent.cpp.o
 
-.PHONY : RL/Interfaces/Q_Agent.o
-
-# target to build an object file
-RL/Interfaces/Q_Agent.cpp.o:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/Q_Agent.cpp.o
-.PHONY : RL/Interfaces/Q_Agent.cpp.o
-
-RL/Interfaces/Q_Agent.i: RL/Interfaces/Q_Agent.cpp.i
-
-.PHONY : RL/Interfaces/Q_Agent.i
-
-# target to preprocess a source file
-RL/Interfaces/Q_Agent.cpp.i:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/Q_Agent.cpp.i
-.PHONY : RL/Interfaces/Q_Agent.cpp.i
-
-RL/Interfaces/Q_Agent.s: RL/Interfaces/Q_Agent.cpp.s
-
-.PHONY : RL/Interfaces/Q_Agent.s
-
-# target to generate assembly for a file
-RL/Interfaces/Q_Agent.cpp.s:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/Q_Agent.cpp.s
-.PHONY : RL/Interfaces/Q_Agent.cpp.s
-
-RL/Interfaces/Q_Agent_Interface.o: RL/Interfaces/Q_Agent_Interface.cpp.o
-
-.PHONY : RL/Interfaces/Q_Agent_Interface.o
+.PHONY : RLIB/Interfaces/Q_Agent.o
 
 # target to build an object file
-RL/Interfaces/Q_Agent_Interface.cpp.o:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/Q_Agent_Interface.cpp.o
-.PHONY : RL/Interfaces/Q_Agent_Interface.cpp.o
+RLIB/Interfaces/Q_Agent.cpp.o:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/Q_Agent.cpp.o
+.PHONY : RLIB/Interfaces/Q_Agent.cpp.o
 
-RL/Interfaces/Q_Agent_Interface.i: RL/Interfaces/Q_Agent_Interface.cpp.i
+RLIB/Interfaces/Q_Agent.i: RLIB/Interfaces/Q_Agent.cpp.i
 
-.PHONY : RL/Interfaces/Q_Agent_Interface.i
+.PHONY : RLIB/Interfaces/Q_Agent.i
 
 # target to preprocess a source file
-RL/Interfaces/Q_Agent_Interface.cpp.i:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/Q_Agent_Interface.cpp.i
-.PHONY : RL/Interfaces/Q_Agent_Interface.cpp.i
+RLIB/Interfaces/Q_Agent.cpp.i:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/Q_Agent.cpp.i
+.PHONY : RLIB/Interfaces/Q_Agent.cpp.i
 
-RL/Interfaces/Q_Agent_Interface.s: RL/Interfaces/Q_Agent_Interface.cpp.s
+RLIB/Interfaces/Q_Agent.s: RLIB/Interfaces/Q_Agent.cpp.s
 
-.PHONY : RL/Interfaces/Q_Agent_Interface.s
+.PHONY : RLIB/Interfaces/Q_Agent.s
 
 # target to generate assembly for a file
-RL/Interfaces/Q_Agent_Interface.cpp.s:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/Q_Agent_Interface.cpp.s
-.PHONY : RL/Interfaces/Q_Agent_Interface.cpp.s
+RLIB/Interfaces/Q_Agent.cpp.s:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/Q_Agent.cpp.s
+.PHONY : RLIB/Interfaces/Q_Agent.cpp.s
 
-RL/Interfaces/RL_Agent.o: RL/Interfaces/RL_Agent.cpp.o
+RLIB/Interfaces/Q_Agent_Interface.o: RLIB/Interfaces/Q_Agent_Interface.cpp.o
 
-.PHONY : RL/Interfaces/RL_Agent.o
+.PHONY : RLIB/Interfaces/Q_Agent_Interface.o
 
 # target to build an object file
-RL/Interfaces/RL_Agent.cpp.o:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/RL_Agent.cpp.o
-.PHONY : RL/Interfaces/RL_Agent.cpp.o
+RLIB/Interfaces/Q_Agent_Interface.cpp.o:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/Q_Agent_Interface.cpp.o
+.PHONY : RLIB/Interfaces/Q_Agent_Interface.cpp.o
 
-RL/Interfaces/RL_Agent.i: RL/Interfaces/RL_Agent.cpp.i
+RLIB/Interfaces/Q_Agent_Interface.i: RLIB/Interfaces/Q_Agent_Interface.cpp.i
 
-.PHONY : RL/Interfaces/RL_Agent.i
+.PHONY : RLIB/Interfaces/Q_Agent_Interface.i
 
 # target to preprocess a source file
-RL/Interfaces/RL_Agent.cpp.i:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/RL_Agent.cpp.i
-.PHONY : RL/Interfaces/RL_Agent.cpp.i
+RLIB/Interfaces/Q_Agent_Interface.cpp.i:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/Q_Agent_Interface.cpp.i
+.PHONY : RLIB/Interfaces/Q_Agent_Interface.cpp.i
 
-RL/Interfaces/RL_Agent.s: RL/Interfaces/RL_Agent.cpp.s
+RLIB/Interfaces/Q_Agent_Interface.s: RLIB/Interfaces/Q_Agent_Interface.cpp.s
 
-.PHONY : RL/Interfaces/RL_Agent.s
+.PHONY : RLIB/Interfaces/Q_Agent_Interface.s
 
 # target to generate assembly for a file
-RL/Interfaces/RL_Agent.cpp.s:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/RL_Agent.cpp.s
-.PHONY : RL/Interfaces/RL_Agent.cpp.s
+RLIB/Interfaces/Q_Agent_Interface.cpp.s:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/Q_Agent_Interface.cpp.s
+.PHONY : RLIB/Interfaces/Q_Agent_Interface.cpp.s
 
-RL/Interfaces/RL_Agent_Interface.o: RL/Interfaces/RL_Agent_Interface.cpp.o
+RLIB/Interfaces/RL_Agent.o: RLIB/Interfaces/RL_Agent.cpp.o
 
-.PHONY : RL/Interfaces/RL_Agent_Interface.o
+.PHONY : RLIB/Interfaces/RL_Agent.o
 
 # target to build an object file
-RL/Interfaces/RL_Agent_Interface.cpp.o:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/RL_Agent_Interface.cpp.o
-.PHONY : RL/Interfaces/RL_Agent_Interface.cpp.o
+RLIB/Interfaces/RL_Agent.cpp.o:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/RL_Agent.cpp.o
+.PHONY : RLIB/Interfaces/RL_Agent.cpp.o
 
-RL/Interfaces/RL_Agent_Interface.i: RL/Interfaces/RL_Agent_Interface.cpp.i
+RLIB/Interfaces/RL_Agent.i: RLIB/Interfaces/RL_Agent.cpp.i
 
-.PHONY : RL/Interfaces/RL_Agent_Interface.i
+.PHONY : RLIB/Interfaces/RL_Agent.i
 
 # target to preprocess a source file
-RL/Interfaces/RL_Agent_Interface.cpp.i:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/RL_Agent_Interface.cpp.i
-.PHONY : RL/Interfaces/RL_Agent_Interface.cpp.i
+RLIB/Interfaces/RL_Agent.cpp.i:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/RL_Agent.cpp.i
+.PHONY : RLIB/Interfaces/RL_Agent.cpp.i
 
-RL/Interfaces/RL_Agent_Interface.s: RL/Interfaces/RL_Agent_Interface.cpp.s
+RLIB/Interfaces/RL_Agent.s: RLIB/Interfaces/RL_Agent.cpp.s
 
-.PHONY : RL/Interfaces/RL_Agent_Interface.s
+.PHONY : RLIB/Interfaces/RL_Agent.s
 
 # target to generate assembly for a file
-RL/Interfaces/RL_Agent_Interface.cpp.s:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/RL_Agent_Interface.cpp.s
-.PHONY : RL/Interfaces/RL_Agent_Interface.cpp.s
+RLIB/Interfaces/RL_Agent.cpp.s:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/RL_Agent.cpp.s
+.PHONY : RLIB/Interfaces/RL_Agent.cpp.s
 
-RL/Interfaces/TransitionLearning_Agent.o: RL/Interfaces/TransitionLearning_Agent.cpp.o
+RLIB/Interfaces/RL_Agent_Interface.o: RLIB/Interfaces/RL_Agent_Interface.cpp.o
 
-.PHONY : RL/Interfaces/TransitionLearning_Agent.o
+.PHONY : RLIB/Interfaces/RL_Agent_Interface.o
 
 # target to build an object file
-RL/Interfaces/TransitionLearning_Agent.cpp.o:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/TransitionLearning_Agent.cpp.o
-.PHONY : RL/Interfaces/TransitionLearning_Agent.cpp.o
+RLIB/Interfaces/RL_Agent_Interface.cpp.o:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/RL_Agent_Interface.cpp.o
+.PHONY : RLIB/Interfaces/RL_Agent_Interface.cpp.o
 
-RL/Interfaces/TransitionLearning_Agent.i: RL/Interfaces/TransitionLearning_Agent.cpp.i
+RLIB/Interfaces/RL_Agent_Interface.i: RLIB/Interfaces/RL_Agent_Interface.cpp.i
 
-.PHONY : RL/Interfaces/TransitionLearning_Agent.i
+.PHONY : RLIB/Interfaces/RL_Agent_Interface.i
 
 # target to preprocess a source file
-RL/Interfaces/TransitionLearning_Agent.cpp.i:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/TransitionLearning_Agent.cpp.i
-.PHONY : RL/Interfaces/TransitionLearning_Agent.cpp.i
+RLIB/Interfaces/RL_Agent_Interface.cpp.i:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/RL_Agent_Interface.cpp.i
+.PHONY : RLIB/Interfaces/RL_Agent_Interface.cpp.i
 
-RL/Interfaces/TransitionLearning_Agent.s: RL/Interfaces/TransitionLearning_Agent.cpp.s
+RLIB/Interfaces/RL_Agent_Interface.s: RLIB/Interfaces/RL_Agent_Interface.cpp.s
 
-.PHONY : RL/Interfaces/TransitionLearning_Agent.s
+.PHONY : RLIB/Interfaces/RL_Agent_Interface.s
 
 # target to generate assembly for a file
-RL/Interfaces/TransitionLearning_Agent.cpp.s:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/TransitionLearning_Agent.cpp.s
-.PHONY : RL/Interfaces/TransitionLearning_Agent.cpp.s
+RLIB/Interfaces/RL_Agent_Interface.cpp.s:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/RL_Agent_Interface.cpp.s
+.PHONY : RLIB/Interfaces/RL_Agent_Interface.cpp.s
 
-RL/Interfaces/TransitionLearning_Agent_Interface.o: RL/Interfaces/TransitionLearning_Agent_Interface.cpp.o
+RLIB/Interfaces/TransitionLearning_Agent.o: RLIB/Interfaces/TransitionLearning_Agent.cpp.o
 
-.PHONY : RL/Interfaces/TransitionLearning_Agent_Interface.o
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent.o
 
 # target to build an object file
-RL/Interfaces/TransitionLearning_Agent_Interface.cpp.o:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/TransitionLearning_Agent_Interface.cpp.o
-.PHONY : RL/Interfaces/TransitionLearning_Agent_Interface.cpp.o
+RLIB/Interfaces/TransitionLearning_Agent.cpp.o:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/TransitionLearning_Agent.cpp.o
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent.cpp.o
 
-RL/Interfaces/TransitionLearning_Agent_Interface.i: RL/Interfaces/TransitionLearning_Agent_Interface.cpp.i
+RLIB/Interfaces/TransitionLearning_Agent.i: RLIB/Interfaces/TransitionLearning_Agent.cpp.i
 
-.PHONY : RL/Interfaces/TransitionLearning_Agent_Interface.i
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent.i
 
 # target to preprocess a source file
-RL/Interfaces/TransitionLearning_Agent_Interface.cpp.i:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/TransitionLearning_Agent_Interface.cpp.i
-.PHONY : RL/Interfaces/TransitionLearning_Agent_Interface.cpp.i
+RLIB/Interfaces/TransitionLearning_Agent.cpp.i:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/TransitionLearning_Agent.cpp.i
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent.cpp.i
 
-RL/Interfaces/TransitionLearning_Agent_Interface.s: RL/Interfaces/TransitionLearning_Agent_Interface.cpp.s
+RLIB/Interfaces/TransitionLearning_Agent.s: RLIB/Interfaces/TransitionLearning_Agent.cpp.s
 
-.PHONY : RL/Interfaces/TransitionLearning_Agent_Interface.s
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent.s
 
 # target to generate assembly for a file
-RL/Interfaces/TransitionLearning_Agent_Interface.cpp.s:
-	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RL/Interfaces/TransitionLearning_Agent_Interface.cpp.s
-.PHONY : RL/Interfaces/TransitionLearning_Agent_Interface.cpp.s
+RLIB/Interfaces/TransitionLearning_Agent.cpp.s:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/TransitionLearning_Agent.cpp.s
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent.cpp.s
+
+RLIB/Interfaces/TransitionLearning_Agent_Interface.o: RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.o
+
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent_Interface.o
+
+# target to build an object file
+RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.o:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.o
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.o
+
+RLIB/Interfaces/TransitionLearning_Agent_Interface.i: RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.i
+
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent_Interface.i
+
+# target to preprocess a source file
+RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.i:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.i
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.i
+
+RLIB/Interfaces/TransitionLearning_Agent_Interface.s: RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.s
+
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent_Interface.s
+
+# target to generate assembly for a file
+RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.s:
+	$(MAKE) -f CMakeFiles/HSRRL.dir/build.make CMakeFiles/HSRRL.dir/RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.s
+.PHONY : RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp.s
 
 main.o: main.cpp.o
 
@@ -321,24 +321,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... HSRRL"
-	@echo "... RL/Interfaces/Q_Agent.o"
-	@echo "... RL/Interfaces/Q_Agent.i"
-	@echo "... RL/Interfaces/Q_Agent.s"
-	@echo "... RL/Interfaces/Q_Agent_Interface.o"
-	@echo "... RL/Interfaces/Q_Agent_Interface.i"
-	@echo "... RL/Interfaces/Q_Agent_Interface.s"
-	@echo "... RL/Interfaces/RL_Agent.o"
-	@echo "... RL/Interfaces/RL_Agent.i"
-	@echo "... RL/Interfaces/RL_Agent.s"
-	@echo "... RL/Interfaces/RL_Agent_Interface.o"
-	@echo "... RL/Interfaces/RL_Agent_Interface.i"
-	@echo "... RL/Interfaces/RL_Agent_Interface.s"
-	@echo "... RL/Interfaces/TransitionLearning_Agent.o"
-	@echo "... RL/Interfaces/TransitionLearning_Agent.i"
-	@echo "... RL/Interfaces/TransitionLearning_Agent.s"
-	@echo "... RL/Interfaces/TransitionLearning_Agent_Interface.o"
-	@echo "... RL/Interfaces/TransitionLearning_Agent_Interface.i"
-	@echo "... RL/Interfaces/TransitionLearning_Agent_Interface.s"
+	@echo "... RLIB/Interfaces/Q_Agent.o"
+	@echo "... RLIB/Interfaces/Q_Agent.i"
+	@echo "... RLIB/Interfaces/Q_Agent.s"
+	@echo "... RLIB/Interfaces/Q_Agent_Interface.o"
+	@echo "... RLIB/Interfaces/Q_Agent_Interface.i"
+	@echo "... RLIB/Interfaces/Q_Agent_Interface.s"
+	@echo "... RLIB/Interfaces/RL_Agent.o"
+	@echo "... RLIB/Interfaces/RL_Agent.i"
+	@echo "... RLIB/Interfaces/RL_Agent.s"
+	@echo "... RLIB/Interfaces/RL_Agent_Interface.o"
+	@echo "... RLIB/Interfaces/RL_Agent_Interface.i"
+	@echo "... RLIB/Interfaces/RL_Agent_Interface.s"
+	@echo "... RLIB/Interfaces/TransitionLearning_Agent.o"
+	@echo "... RLIB/Interfaces/TransitionLearning_Agent.i"
+	@echo "... RLIB/Interfaces/TransitionLearning_Agent.s"
+	@echo "... RLIB/Interfaces/TransitionLearning_Agent_Interface.o"
+	@echo "... RLIB/Interfaces/TransitionLearning_Agent_Interface.i"
+	@echo "... RLIB/Interfaces/TransitionLearning_Agent_Interface.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -13,19 +13,19 @@ set(SOURCES ${SOURCES}
 )
 
 set(SOURCES ${SOURCES}
-        RL/Defs.hpp
-        RL/Interfaces/RL_Agent_Interface.cpp
-        RL/Interfaces/RL_Agent_Interface.hpp
-        RL/Interfaces/RL_Agent.cpp
-        RL/Interfaces/RL_Agent.hpp
-        RL/Interfaces/TransitionLearning_Agent_Interface.cpp
-        RL/Interfaces/TransitionLearning_Agent_Interface.hpp
-        RL/Interfaces/TransitionLearning_Agent.cpp
-        RL/Interfaces/TransitionLearning_Agent.hpp
-        RL/Interfaces/Q_Agent_Interface.cpp
-        RL/Interfaces/Q_Agent_Interface.hpp
-        RL/Interfaces/Q_Agent.cpp
-        RL/Interfaces/Q_Agent.hpp
+        RLIB/Defs.hpp
+        RLIB/Interfaces/RL_Agent_Interface.cpp
+        RLIB/Interfaces/RL_Agent_Interface.hpp
+        RLIB/Interfaces/RL_Agent.cpp
+        RLIB/Interfaces/RL_Agent.hpp
+        RLIB/Interfaces/TransitionLearning_Agent_Interface.cpp
+        RLIB/Interfaces/TransitionLearning_Agent_Interface.hpp
+        RLIB/Interfaces/TransitionLearning_Agent.cpp
+        RLIB/Interfaces/TransitionLearning_Agent.hpp
+        RLIB/Interfaces/Q_Agent_Interface.cpp
+        RLIB/Interfaces/Q_Agent_Interface.hpp
+        RLIB/Interfaces/Q_Agent.cpp
+        RLIB/Interfaces/Q_Agent.hpp
 )
 
 # Armadillo
