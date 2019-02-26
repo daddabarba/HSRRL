@@ -24,7 +24,7 @@ public:
 
     // Getters and Setters
 
-    REACT_CONC::Variable<RLIB_INTERFACES::Transition> getTransition() override;
+    REACT_CONC::Variable<RLIB_INTERFACES::Transition> get_transition() override;
     
 protected:
 

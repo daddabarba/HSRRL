@@ -9,6 +9,6 @@ RLIB_ABSTRACT::TransitionLearning_Agent::TransitionLearning_Agent(Space_Size sta
         RL_Agent(state_space_size, action_space_size)
 {};
 
-auto RLIB_ABSTRACT::TransitionLearning_Agent::getTransition() -> REACT_CONC::Variable<RLIB_INTERFACES::Transition> {
+auto RLIB_ABSTRACT::TransitionLearning_Agent::get_transition() -> REACT_CONC::Variable<RLIB_INTERFACES::Transition> {
         return this->t;
 }

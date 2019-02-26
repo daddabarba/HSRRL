@@ -24,7 +24,7 @@ class TransitionLearning_Agent_Interface : public RL_Agent_Interface{
     // Getters and Setters
 
     virtual void learn(Transition);
-    virtual REACT_CONC::Variable<Transition> getTransition() = 0;
+    virtual REACT_CONC::Variable<Transition> get_transition() = 0;
 
 };
 
