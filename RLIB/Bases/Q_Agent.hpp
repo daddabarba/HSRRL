@@ -17,11 +17,12 @@ RLIB_BASES_START
 
 class Q_Agent : public Transition_Learning_Agent{
 
-    Q_Agent(Space_Size state_space_size, Space_Size action_space_size);
+public:
+    Q_Agent(Space_Size state_space_size, Space_Size action_space_size, double alpha = 0.5, double gamma = 0.99);
 
     // Data retrieval
-    virtual double U_fun(State);
-    virtual double Q_fun(State, Action);
+    double U_fun(State);
+    double Q_fun(State, Action);
 
     // Getters and Setters
     REACT_CONC::Variable<arma::Mat<double>>* getQ();

@@ -20,6 +20,8 @@ set(SOURCES ${SOURCES}
         RLIB/Bases/Transition_Learning_Agent.cpp
         RLIB/Bases/Q_Agent.hpp
         RLIB/Bases/Q_Agent.cpp
+        RLIB/Addons/Q_Agent_Addons.hpp
+        RLIB/Addons/Q_Agent_Addons.cpp
 )
 
 # Armadillo

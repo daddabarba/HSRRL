@@ -19,7 +19,7 @@ class RL_Agent {
 
 public:
 
-    RL_Agent(Space_Size state_space_size, Space_Size action_space_size);
+    RL_Agent(Space_Size state_space_size, Space_Size action_space_size, double alpha = 0.5, double gamma = 0.99);
 
     // Data retrieval
     Action policy(State);
@@ -27,8 +27,11 @@ public:
 
     // Getters and Setters
 
-    Space_Size get_S_size();
-    Space_Size get_A_size();
+    const double get_alpha();
+    const double get_gamma();
+
+    const Space_Size get_S_size();
+    const Space_Size get_A_size();
 
     REACT_CONC::Variable<arma::Mat<double>>* getP();
 
@@ -39,7 +42,9 @@ public:
 
 protected:
 
-    Space_Size state_space_size, action_space_size;
+    const double alpha, gamma;
+
+    const Space_Size state_space_size, action_space_size;
 
     REACT_CONC::Variable<arma::Mat<double>> *P;
     REACT_CONC::Variable<State> *current_state;

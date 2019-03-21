@@ -5,7 +5,9 @@
 #include "RL_Agent.hpp"
 #include "../Defs.hpp"
 
-RLIB_BASES::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_space_size) :
+RLIB_BASES::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_space_size, double alpha, double gamma) :
+        alpha(alpha),
+        gamma(gamma),
         state_space_size(state_space_size),
         action_space_size(action_space_size),
         P(REACT_CONC::make_variable<arma::Mat<double>>(arma::Mat<double>(action_space_size, 1))),
@@ -29,11 +31,19 @@ auto RLIB_BASES::RL_Agent::policy() -> Action {
     )(get_generator()));
 }
 
-auto RLIB_BASES::RL_Agent::get_S_size() -> Space_Size{
+auto RLIB_BASES::RL_Agent::get_alpha() -> const double {
+    return this->alpha;
+}
+
+auto RLIB_BASES::RL_Agent::get_gamma() -> const double {
+    return this->gamma;
+}
+
+auto RLIB_BASES::RL_Agent::get_S_size() -> const Space_Size{
     return this->state_space_size;
 }
 
-auto RLIB_BASES::RL_Agent::get_A_size() -> Space_Size{
+auto RLIB_BASES::RL_Agent::get_A_size() -> const Space_Size{
     return this->action_space_size;
 }
 

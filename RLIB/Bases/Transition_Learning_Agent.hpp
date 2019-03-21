@@ -22,13 +22,13 @@ struct Transition {
 class Transition_Learning_Agent : public RL_Agent{
 
 public:
-    Transition_Learning_Agent(Space_Size state_space_size, Space_Size action_space_size);
+    Transition_Learning_Agent(Space_Size state_space_size, Space_Size action_space_size, double alpha = 0.5, double gamma = 0.99);
 
     void learn(Transition);
-    REACT_CONC::Variable<Transition> get_transition();
+    REACT_CONC::Variable<Transition>* get_transition();
 
 protected:
-    REACT_CONC::Variable<Transition> t;
+    REACT_CONC::Variable<Transition>* t;
 
 };
 

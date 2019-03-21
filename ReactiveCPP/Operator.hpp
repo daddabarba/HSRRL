@@ -116,7 +116,7 @@ public:
             Operator<TFun, TOut, TIn...>(
                     std::forward<TFun>(fun),
                     std::forward<Variable<TOut>>(output),
-    std::forward<Variable<TIn>>(args)...)
+                    std::forward<Variable<TIn>>(args)...)
     {};
 
 protected:
