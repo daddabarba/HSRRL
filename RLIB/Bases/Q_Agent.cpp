@@ -15,9 +15,11 @@ RLIB_BASES::Q_Agent::Q_Agent(Space_Size state_space_size, Space_Size action_spac
 {
 
     // Set up U as the expected value of Q, with respect to Pi
-    REACT_CONC::make_operator_set([](arma::Mat<double> Q, arma::Mat<double> Pi) -> arma::Mat<double>{
-        return Q*Pi;
-    }, getU(), getQ(), getP());
+    REACT_CONC::make_operator_set(
+            [](arma::Mat<double> Q, arma::Mat<double> Pi) -> arma::Mat<double>{
+                return Q*Pi;
+            },
+            getU(), getQ(), getP());
 
 }
 

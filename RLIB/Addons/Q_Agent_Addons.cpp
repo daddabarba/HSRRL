@@ -4,37 +4,57 @@
 
 #include "Q_Agent_Addons.hpp"
 
-auto add_q_learning(RLIB_BASES::Q_Agent& q_agent) -> RLIB_BASES::Q_Agent& {
+// BASE CLASS
 
-    REACT_CONC::make_operator_update(
-            [&q_agent](arma::Mat<double>* Q, RLIB_BASES::Transition t) -> void{
+RLIB_ADDONS::Q_Agent_Addon::Q_Agent_Addon(RLIB_BASES::Q_Agent* base) :
+        base(base)
+{};
 
-                auto mem = q_agent.Q_fun(t.s_start, t.a);
-                auto approximation = t.r + q_agent.get_gamma()*q_agent.U_fun(t.s_end);
-
-                Q->at(t.s_start + q_agent.get_S_size()*t.a) = (1-q_agent.get_alpha())*mem + q_agent.get_alpha()*approximation;
-            },
-            q_agent.getQ(),
-            q_agent.get_transition()
-    );
-
-    return q_agent;
+auto RLIB_ADDONS::Q_Agent_Addon::getBase() -> RLIB_BASES::Q_Agent* {
+    return this->base;
 }
+
+// LEARNING
+
+RLIB_ADDONS::Q_Learning::Q_Learning(RLIB_BASES::Q_Agent* base) :
+        RLIB_ADDONS::Q_Agent_Addon(base)
+{
+    REACT_CONC::make_operator_set(
+            [q_agent=getBase()](arma::Mat<double> Q, RLIB_BASES::Transition t) -> arma::Mat<double> {
+
+                auto mem = q_agent->Q_fun(t.s_start, t.a);
+                auto approximation = t.r + q_agent->get_gamma()*q_agent->U_fun(t.s_end);
+
+                Q.at(t.s_start + q_agent->get_S_size()*t.a) = (1-q_agent->get_alpha())*mem + q_agent->get_alpha()*approximation;
+
+                return Q;
+            },
+            getBase()->getQ(),
+            REACT_CONC::make_parameter(getBase()->getQ()),
+            getBase()->get_transition()
+    );
+};
 
 // EXPLORATION METHODS
 
-auto add_greddy(RLIB_BASES::Q_Agent& q_agent) -> RLIB_BASES::Q_Agent& {
+RLIB_ADDONS::Greedy::Greedy(RLIB_BASES::Q_Agent* base) :
+        RLIB_ADDONS::Q_Agent_Addon(base)
+{
+    REACT_CONC::make_operator_set(
+            [](arma::Mat<double> P, arma::Mat<double> Q, State s) -> arma::Mat<double> {
+                P.zeros();
 
-    REACT_CONC::make_operator_update(
-            [](arma::Mat<double>* P, arma::Mat<double> Q, State s) -> void{
-                P->zeros();
-                P->at(Q.row(s).index_max()) = 1.0;
+                arma::uword index_max;
+                Q.row(s).max(index_max);
+
+                P.at(index_max) = 1.0;
+
+                return P;
             },
-            q_agent.getP(),
-            q_agent.getQ(),
-            q_agent.get_current_state()
+            getBase()->getP(),
+            REACT_CONC::make_parameter(getBase()->getP()),
+            getBase()->getQ(),
+            getBase()->get_current_state()
     );
-
-    return q_agent;
-}
+};
 

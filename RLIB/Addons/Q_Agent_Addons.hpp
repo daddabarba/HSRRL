@@ -15,13 +15,38 @@
 
 RLIB_ADDONS_START
 
+// BASE CLASS
+
+class Q_Agent_Addon {
+public:
+
+    explicit Q_Agent_Addon(RLIB_BASES::Q_Agent* base);
+    explicit Q_Agent_Addon(Q_Agent_Addon* other) : Q_Agent_Addon(other->getBase()) {};
+
+    RLIB_BASES::Q_Agent* getBase();
+
+private:
+    RLIB_BASES::Q_Agent* base;
+};
+
 // LEARNING METHODS
 
-auto add_q_learning(RLIB_BASES::Q_Agent& q_agent) -> RLIB_BASES::Q_Agent&;
+class Q_Learning : public Q_Agent_Addon {
+public:
+
+    explicit Q_Learning(RLIB_BASES::Q_Agent* base);
+    explicit Q_Learning(Q_Agent_Addon* other) : Q_Learning(other->getBase()) {};
+
+};
 
 // EXPLORATION METHODS
 
-auto add_greddy(RLIB_BASES::Q_Agent& q_agent) -> RLIB_BASES::Q_Agent&;
+class Greedy : public Q_Agent_Addon {
+public:
+
+    explicit Greedy(RLIB_BASES::Q_Agent* base);
+    explicit Greedy(Q_Agent_Addon* other) : Greedy(other->getBase()) {};
+};
 
 RLIB_ADDONS_END
 
