@@ -38,6 +38,8 @@ public:
     REACT_CONC::Variable<State>* get_current_state();
     void set_current_state(State);
 
+    REACT_CONC::Variable<unsigned long>* get_clock();
+
     std::mt19937& get_generator();
 
 protected:
@@ -48,6 +50,8 @@ protected:
 
     REACT_CONC::Variable<arma::Mat<double>> *P;
     REACT_CONC::Variable<State> *current_state;
+
+    REACT_CONC::Variable<unsigned long> *clock;
 
     std::mt19937 generator;
 };

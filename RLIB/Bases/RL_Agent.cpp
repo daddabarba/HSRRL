@@ -5,14 +5,26 @@
 #include "RL_Agent.hpp"
 #include "../Defs.hpp"
 
+#include "../../ReactiveCPP/Operator.hpp"
+#include "../../ReactiveCPP/ParameterNode.hpp"
+
 RLIB_BASES::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_space_size, double alpha, double gamma) :
         alpha(alpha),
         gamma(gamma),
         state_space_size(state_space_size),
         action_space_size(action_space_size),
         P(REACT_CONC::make_variable<arma::Mat<double>>(arma::Mat<double>(action_space_size, 1))),
+        clock(REACT_CONC::make_variable<unsigned long>(0)),
         generator((unsigned long)time(nullptr))
-{}
+{
+    REACT_CONC::make_operator_set(
+            [](State, unsigned long current_time) -> unsigned long {
+                return current_time + 1;
+            },
+            get_clock(),
+            get_current_state(),
+            REACT_CONC::make_parameter(get_clock()));
+};
 
 auto RLIB_BASES::RL_Agent::policy(State state) -> Action {
     get_current_state()->set(state);
@@ -57,6 +69,10 @@ auto RLIB_BASES::RL_Agent::get_current_state() -> REACT_CONC::Variable<State>* {
 
 auto RLIB_BASES::RL_Agent::set_current_state(State state) -> void {
     this->current_state->set(state);
+}
+
+auto RLIB_BASES::RL_Agent::get_clock() -> REACT_CONC::Variable<unsigned long>* {
+    return this->clock;
 }
 
 auto RLIB_BASES::RL_Agent::get_generator() -> std::mt19937&{
