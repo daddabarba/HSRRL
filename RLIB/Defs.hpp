@@ -25,6 +25,7 @@
 
 typedef unsigned int Action;
 typedef unsigned int State;
+typedef double Reward;
 
 typedef unsigned int Space_Size;
 
