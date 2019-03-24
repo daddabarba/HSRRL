@@ -17,6 +17,8 @@ struct Transition {
     State s_start, s_end;
     Action a;
     double r;
+
+    Transition(State s_start, State s_end, Action a, double r);
 };
 
 class Transition_Learning_Agent : public RL_Agent{
