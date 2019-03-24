@@ -18,12 +18,18 @@ int main(int argc, char **argv){
 
     auto agent = new ACTOR::Transition_Learning_Actor(argv[1]);
 
-    agent->setPi(new RLIB_BASES::Q_Agent(
-            agent->get_num_states(),
-            agent->get_num_actions(),
-            std::stod(argv[2]),
-            std::stod(argv[3])
-    ));
+    agent->setPi(
+            (new RLIB_ADDONS::Q_Learning(
+                    new RLIB_ADDONS::Greedy(
+                            new RLIB_BASES::Q_Agent(
+                                    agent->get_num_states(),
+                                    agent->get_num_actions(),
+                                    std::stod(argv[2]),
+                                    std::stod(argv[3])
+                            )
+                    )
+            ))->getBase()
+    );
 
     agent->start();
 
