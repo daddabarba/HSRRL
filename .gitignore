@@ -4,5 +4,6 @@ CMakeCache.txt
 cmake_install.cmake
 .idea/*
 HSRRL
+TEST_REACT
 *.cbp
 CPP_SocketWrapper/*
