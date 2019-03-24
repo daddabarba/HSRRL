@@ -34,6 +34,15 @@ set(SOURCES ${SOURCES}
         Actor/Transition_Learning_Actor.cpp
 )
 
+set(SOURCES ${SOURCES}
+        CPP_SocketWrapper/cppsockets/Socket.cpp
+        CPP_SocketWrapper/cppsockets/Socket.h
+        CPP_SocketWrapper/cppsockets/SocketClient.cpp
+        CPP_SocketWrapper/cppsockets/SocketClient.h
+        CPP_SocketWrapper/cppsockets/SocketServer.cpp
+        CPP_SocketWrapper/cppsockets/SocketServer.h
+        )
+
 # Armadillo
 find_package(Armadillo REQUIRED)
 include_directories(${ARMADILLO_INCLUDE_DIRS})
@@ -47,5 +56,8 @@ link_directories(${Boost_LIBRARY_DIR})
 set(GCC_COVERAGE_COMPILE_FLAGS "-O3 -march=native -larmadillo -fopenmp -Wall")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
 
-add_executable(HSRRL main.cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(TEST_REACT test_react.cpp ${SOURCE_FILES} ${SOURCES})
+target_link_libraries(TEST_REACT ${ARMADILLO_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(${PROJECT_NAME} main.cpp ${SOURCE_FILES} ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${ARMADILLO_LIBRARIES} ${Boost_LIBRARIES})
