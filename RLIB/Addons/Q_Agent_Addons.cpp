@@ -4,6 +4,9 @@
 
 #include "Q_Agent_Addons.hpp"
 
+#include "../../ReactiveCPP/Defs.hpp"
+#include "../Defs.hpp"
+
 // BASE CLASS
 
 RLIB_ADDONS::Q_Agent_Addon::Q_Agent_Addon(RLIB_BASES::Q_Agent* base) :

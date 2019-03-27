@@ -13,7 +13,8 @@ RLIB_BASES::Transition::Transition(State s_start, State s_end, Action a, double 
 {};
 
 RLIB_BASES::Transition_Learning_Agent::Transition_Learning_Agent(Space_Size state_space_size, Space_Size action_space_size, double alpha, double gamma) :
-        RL_Agent(state_space_size, action_space_size, alpha, gamma)
+        RL_Agent(state_space_size, action_space_size, alpha, gamma),
+        t(REACT_CONC::make_variable<RLIB_BASES::Transition>(RLIB_BASES::Transition(0,0,0,0)))
 {};
 
 auto RLIB_BASES::Transition_Learning_Agent::learn(RLIB_BASES::Transition transition) -> void{

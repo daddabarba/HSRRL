@@ -14,6 +14,7 @@ RLIB_BASES::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_sp
         state_space_size(state_space_size),
         action_space_size(action_space_size),
         P(REACT_CONC::make_variable<arma::Mat<double>>(arma::Mat<double>(action_space_size, 1))),
+        current_state(REACT_CONC::make_variable<State>(0)),
         clock(REACT_CONC::make_variable<unsigned long>(0)),
         generator((unsigned long)time(nullptr))
 {
