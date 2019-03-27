@@ -35,7 +35,7 @@ auto ACTOR::RL_Actor::getAction() -> Action {
 auto ACTOR::RL_Actor::getAction(Action* a, State* s) -> Action {
 
     if (this->getPi() != nullptr)
-        return *a = this->getPi()->policy((State)(this->state_socket<<0>>(int*)s));
+        return *a = this->getPi()->policy((State)(this->state_socket.reset_buffer()<<1>>(int*)s));
 
     return 0;
 }

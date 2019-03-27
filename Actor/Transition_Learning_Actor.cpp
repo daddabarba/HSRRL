@@ -22,7 +22,7 @@ auto ACTOR::Transition_Learning_Actor::start() -> void {
     do{
 
         // Get reward
-        this->reward_socket<<0>>this->get_next_reward();
+        this->reward_socket.reset_buffer()<<1>>this->get_next_reward();
         this->act();
 
         this->getPi()->learn(this->t);
