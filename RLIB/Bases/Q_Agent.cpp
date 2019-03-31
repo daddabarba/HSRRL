@@ -10,8 +10,8 @@
 
 RLIB_BASES::Q_Agent::Q_Agent(Space_Size state_space_size, Space_Size action_space_size, double alpha, double gamma) :
         Transition_Learning_Agent(state_space_size, action_space_size, alpha, gamma),
-        Q(REACT_CONC::make_variable<arma::Mat<double>>(arma::Mat<double>((arma::uword)state_space_size, (arma::uword)action_space_size))),
-        U(REACT_CONC::make_variable<arma::Mat<double>>(arma::Mat<double>(state_space_size, 1)))
+        Q(REACT_CONC::make_variable<arma::Mat<double>>(arma::Mat<double>(arma::randu((arma::uword)state_space_size, (arma::uword)action_space_size)))),
+        U(REACT_CONC::make_variable<arma::Mat<double>>(arma::Mat<double>(arma::randu(state_space_size, 1))))
 {
 
     // Set up U as the expected value of Q, with respect to Pi
