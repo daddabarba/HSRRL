@@ -33,7 +33,7 @@ auto RLIB_BASES::RL_Agent::policy(State state) -> Action {
 }
 
 auto RLIB_BASES::RL_Agent::policy() -> Action {
-    auto M = (arma::Mat<double>)*getP();
+    auto M = getP()->get();
     return ((Action)std::discrete_distribution<int>(
             M.size(),
             0.0,
