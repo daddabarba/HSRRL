@@ -28,7 +28,7 @@ RLIB_BASES::RL_Agent::RL_Agent(Space_Size state_space_size, Space_Size action_sp
 };
 
 auto RLIB_BASES::RL_Agent::policy(State state) -> Action {
-    get_current_state()->set(state);
+    this->set_current_state(state);
     return this->policy();
 }
 
@@ -70,6 +70,10 @@ auto RLIB_BASES::RL_Agent::get_current_state() -> REACT_CONC::Variable<State>* {
 }
 
 auto RLIB_BASES::RL_Agent::set_current_state(State state) -> void {
+
+    if (state<0 || state>=this->state_space_size)
+        return;
+
     this->current_state->set(state);
 }
 
