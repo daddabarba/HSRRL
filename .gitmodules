@@ -1,0 +1,3 @@
+[submodule "CPP_SocketWrapper"]
+	path = CPP_SocketWrapper
+	url = https://github.com/daddabarba/CPP_SocketWrapper.git
