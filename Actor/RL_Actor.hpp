@@ -43,7 +43,7 @@ protected:
     void act(Action* a, State* s);
     Action getAction(Action* a, State* s);
 
-    skt::SocketClient reward_socket, state_socket, action_socket;
+    skt::SocketClient reward_socket, state_socket, action_socket, log_socket;
 };
 
 ACTOR_END

@@ -10,11 +10,13 @@ ACTOR::RL_Actor::RL_Actor(std::string sockets_path) :
         pi(nullptr),
         reward_socket(sockets_path + "_r"),
         state_socket(sockets_path + "_s"),
-        action_socket(sockets_path + "_a")
+        action_socket(sockets_path + "_a"),
+        log_socket(sockets_path + "_log")
 {
     reward_socket.start_connection();
     state_socket.start_connection();
     action_socket.start_connection();
+    log_socket.start_connection();
 
     state_socket >> &this->num_states;
     action_socket >> &this->num_actions;
