@@ -5,6 +5,8 @@
 #include "Transition_Learning_Actor.hpp"
 #include "Defs.hpp"
 
+#include <unistd.h>
+
 ACTOR::Transition_Learning_Actor::Transition_Learning_Actor(std::string sockets_path) :
     ACTOR::RL_Actor(sockets_path),
     t({0,0,0,0})
@@ -30,6 +32,8 @@ auto ACTOR::Transition_Learning_Actor::start() -> void {
 
         this->t.s_start = this->t.s_end;
         this->t.a = this->next_a;
+
+        usleep(500);
 
     }while( this->t.s_end < this->get_num_states() );
 
