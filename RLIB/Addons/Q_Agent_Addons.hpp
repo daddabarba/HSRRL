@@ -13,6 +13,8 @@
 #include "../../ReactiveCPP/ParameterNode.hpp"
 #include "../../ReactiveCPP/Operator.hpp"
 
+#include <random>
+
 RLIB_ADDONS_START
 
 // BASE CLASS
@@ -46,6 +48,35 @@ public:
 
     explicit Greedy(RLIB_BASES::Q_Agent* base);
     explicit Greedy(Q_Agent_Addon* other) : Greedy(other->getBase()) {};
+};
+
+
+class E_Greedy : public Q_Agent_Addon {
+public:
+
+    explicit E_Greedy(RLIB_BASES::Q_Agent* base, double epsilon);
+    explicit E_Greedy(Q_Agent_Addon* other, double epsilon) : E_Greedy(other->getBase(), epsilon) {};
+
+private:
+
+    double epsilon;
+
+    std::random_device rd;
+    std::mt19937 m;
+    std::uniform_real_distribution<double> dist_prob;
+    std::uniform_int_distribution<int> dist_act;
+};
+
+
+class Softmax : public Q_Agent_Addon {
+public:
+
+    explicit Softmax(RLIB_BASES::Q_Agent* base, double T);
+    explicit Softmax(Q_Agent_Addon* other, double T) : Softmax(other->getBase(), T) {};
+
+private:
+
+    double T;
 };
 
 RLIB_ADDONS_END
